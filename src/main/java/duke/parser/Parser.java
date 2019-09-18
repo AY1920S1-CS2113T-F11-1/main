@@ -1,16 +1,6 @@
 package duke.parser;
 
-import duke.command.AddDeadlineCommand;
-import duke.command.AddDoAfterCommand;
-import duke.command.AddEventCommand;
-import duke.command.AddFixedDurationCommand;
-import duke.command.AddToDoCommand;
-import duke.command.ByeCommand;
-import duke.command.Command;
-import duke.command.DeleteCommand;
-import duke.command.DoneCommand;
-import duke.command.FindCommand;
-import duke.command.ListCommand;
+import duke.command.*;
 import duke.exceptions.DukeException;
 
 import java.util.ArrayList;
@@ -45,6 +35,8 @@ public class Parser {
             return new AddDoAfterCommand(splitInput);
         } else if (inputTask.equals("fixed")) {
             return new AddFixedDurationCommand(splitInput);
+        } else if (inputTask.equals("recursive")) {
+            return new AddRecursiveCommand(splitInput);
         } else if (inputTask.equals("delete")) {
             return new DeleteCommand(splitInput);
         } else if (inputTask.equals("find")) {
