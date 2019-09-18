@@ -1,9 +1,9 @@
 package duke.tasks;
 
-public class Recursive extends Task {
+public class Recurring extends Task {
     protected String forTask;
 
-    public Recursive(String description, String forTask ) {
+    public Recurring(String description, String forTask) {
         super(description);
         this.forTask = forTask;
     }

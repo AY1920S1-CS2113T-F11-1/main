@@ -1,7 +1,13 @@
 package duke.storage;
 
 import duke.exceptions.DukeException;
-import duke.tasks.*;
+import duke.tasks.Deadline;
+import duke.tasks.DoAfter;
+import duke.tasks.Event;
+import duke.tasks.FixedDuration;
+import duke.tasks.Recurring;
+import duke.tasks.Task;
+import duke.tasks.Todo;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -40,7 +46,7 @@ public class FileHandling {
             initialData.add(new FixedDuration(columns.get(2),columns.get(3)));
             break;
         case "R":
-            initialData.add(new Recursive(columns.get(2),columns.get(3)));
+            initialData.add(new Recurring(columns.get(2),columns.get(3)));
             break;
         default:
             System.out.println("\n     There is an invalid entry in the file. This entry will "

@@ -2,16 +2,16 @@ package duke.command;
 
 import duke.exceptions.DukeException;
 import duke.storage.FileHandling;
-import duke.tasks.Recursive;
+import duke.tasks.Recurring;
 import duke.tasks.TaskList;
 import duke.ui.Ui;
 
 import java.util.List;
 
-public class AddRecursiveCommand extends Command {
+public class AddRecurringCommand extends Command {
     private List<String> splitInput;
 
-    public AddRecursiveCommand(List<String> splitInput) {
+    public AddRecurringCommand(List<String> splitInput) {
         this.splitInput = splitInput;
     }
 
@@ -39,7 +39,7 @@ public class AddRecursiveCommand extends Command {
         } else if (split2.trim().length() == 0) {
             throw new DukeException(" Please enter the time frame");
         }
-        tasks.addTask(new Recursive(split1.trim(), split2.trim()));
+        tasks.addTask(new Recurring(split1.trim(), split2.trim()));
         String taskA = tasks.getTask(tasks.numTasks() - 1).toString();
         ui.printAddTask(tasks.getAllTasks(),taskA);
         storage.saveData(tasks.getAllTasks());
