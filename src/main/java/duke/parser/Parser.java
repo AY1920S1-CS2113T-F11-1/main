@@ -1,15 +1,6 @@
 package duke.parser;
 
-import duke.command.AddDeadlineCommand;
-import duke.command.AddDoAfterCommand;
-import duke.command.AddEventCommand;
-import duke.command.AddToDoCommand;
-import duke.command.ByeCommand;
-import duke.command.Command;
-import duke.command.DeleteCommand;
-import duke.command.DoneCommand;
-import duke.command.FindCommand;
-import duke.command.ListCommand;
+import duke.command.*;
 import duke.exceptions.DukeException;
 
 import java.util.ArrayList;
@@ -30,6 +21,9 @@ public class Parser {
         String inputTask = splitInput.get(0);
         if (fullCommand.equals("list")) {
             return new ListCommand();
+        }
+        else if(fullCommand.equals("remind")){
+            return new RemindCommand();
         } else if (fullCommand.equals("bye")) {
             return new ByeCommand();
         } else if (inputTask.equals("done")) {
