@@ -16,8 +16,6 @@ public class RemindCommandTest {
     void checkRemind() throws DukeException {
         Command c = new RemindCommand();
         assertFalse(c.isExit);
-        c.execute(new TaskList(),new Ui(),new FileHandling("storeData.txt"));
-        assertTrue(c.isExit);
     }
 
 }
