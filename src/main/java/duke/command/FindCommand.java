@@ -12,7 +12,8 @@ import java.util.List;
 public class FindCommand extends Command {
     private List<String> splitInput;
 
-    public FindCommand(List<String> splitInput) { this.splitInput = splitInput;
+    public FindCommand(List<String> splitInput) {
+        this.splitInput = splitInput;
     }
 
     @Override
