@@ -2,12 +2,9 @@ package duke.parser;
 
 import duke.exceptions.DukeException;
 
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.DateTimeException;
-
-
 
 public class DateTimeRecognition {
     private String date;
@@ -28,7 +25,6 @@ public class DateTimeRecognition {
         } catch (DateTimeException e) {
             throw new DukeException(" The format for including date and time for an event/"
                     + "deadline is <dd/MM/yyyy HH:mm>");
-
         }
     }
 }
