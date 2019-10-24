@@ -277,12 +277,12 @@ Use case ends.
 
 *MSS*
 
-1. User enters command to undo the previous command. +
-2. SpongeBob undos the previous command entered by the user. +
+1. User enters command to undo/redo the previous command. +
+2. SpongeBob undos/redos the previous command entered by the user. +
 
 *Extensions*
 
-* 2a. If there are no undoable commands then SpongeBob, displays the message “no undo commands”. +
+* 2a. If there are no un-doable/re-doable commands then SpongeBob, displays the message “no undo/redo commands”. +
 Use Case ends.
 
 [none]
@@ -350,7 +350,7 @@ Use Case ends.
 
 *Technical Requirements:*
 
-* The programs must run on common OS like Windows, Ubuntu and MacOS provided they have Java 11 or later versions installed.
+* The programs must run on common OS like Windows, Ubuntu and Mac OS provided they have Java 11 or later versions installed.
 * The software should be able to store at least 200 entries.
 * Performance Requirements:
 * The application must respond to the user within two seconds of the user input valid, or otherwise.
