@@ -216,7 +216,7 @@ Priorities:
 |:star::star::star: |locker manager for the SoC club|edit the various fields associated with a locker like serial number, usage and area|I can ensure that the information in SpongeBob meets accurately with real-world status of the lockers
 |:star::star::star: |locker manager for the SoC club|edit the information of a particular student who has been assigned to a locker|I can make sure that the students particulars are correct
 |:star::star::star: |locker manager for the SoC club|edit the various fields associated with a locker like serial number, usage and area|I can ensure that the information in SpongeBob meets accurately with real world status of the lockers
-|:star::star::star: |a SoC  club member|check the number of unused lockers|I know how many lockers are available for rental at any given time
+|:star::star::star: |SoC  club member|check the number of unused lockers|I know how many lockers are available for rental at any given time
 |:star::star::star: |locker manager for the SoC club|tag labels on the lockers as available|I can assign those lockers to the student who applies for it
 |:star::star::star: |locker manager for the SoC club|tag labels on the lockers as in-use|I can make sure those lockers are not assigned to others again
 |:star::star::star: |locker manager for the SoC club|tag labels on the lockers as broken|I can call the respective authorities to repair the locker
