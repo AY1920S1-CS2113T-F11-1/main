@@ -30,6 +30,7 @@ public class Parser {
      * @return objects of type Command depending on the command given by the user
      * @throws DukeException when the user inputs invalid command
      */
+
     public Command parse(String fullCommand) throws DukeException {
         Matcher commandMatch = GENERAL_COMMAND_FORMAT.matcher(fullCommand.trim());
         if (!commandMatch.matches()) {

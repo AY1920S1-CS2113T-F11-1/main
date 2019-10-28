@@ -11,8 +11,13 @@ import java.nio.file.Paths;
 import java.io.IOException;
 import java.util.List;
 
-public class OpenCSVWriterString {
+public class OpenCsv {
     private static final String STRING_ARRAY_SAMPLE = "data.csv";
+
+    /**
+     * This function exports a CSV file.
+     * @throws DukeException when there are errors while handling the file.
+     */
 
     public static void exportLockers(List<Locker> lockerList) throws DukeException {
         try {
@@ -29,12 +34,12 @@ public class OpenCSVWriterString {
 
             for (Locker l : lockerList) {
 
-                String[] Details = new String[header.length];
-                Details[0] = l.getSerialNumber().getSerialNumberForLocker();
-                Details[1] = l.getZone().getZone();
-                Details[2] = l.getTag().getTagName();
+                String[] details = new String[header.length];
+                details[0] = l.getSerialNumber().getSerialNumberForLocker();
+                details[1] = l.getZone().getZone();
+                details[2] = l.getTag().getTagName();
 
-                csvWriter.writeNext(Details);
+                csvWriter.writeNext(details);
             }
             csvWriter.close();
         } catch (IOException e) {
