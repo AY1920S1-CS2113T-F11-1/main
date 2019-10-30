@@ -3,7 +3,7 @@ package duke.storage;
 import com.opencsv.CSVWriter;
 
 import duke.exceptions.DukeException;
-import duke.models.Locker;
+import duke.models.locker.Locker;
 
 import java.io.Writer;
 import java.nio.file.Files;
