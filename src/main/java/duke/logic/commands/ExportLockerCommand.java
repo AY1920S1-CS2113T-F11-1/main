@@ -8,9 +8,6 @@ import duke.ui.Ui;
 
 public class ExportLockerCommand extends Command {
 
-    public ExportLockerCommand(){
-    }
-
     @Override
     public void execute(LockerList lockerList, Ui ui, FileHandling storage) throws DukeException {
         ui.exportMessage();

@@ -12,8 +12,10 @@ import java.io.IOException;
 import java.util.List;
 
 public class OpenCsv {
-    private static final String STRING_ARRAY_SAMPLE = "data.csv";
-
+    private static final String CSV_OUTPUT_PATH = "data.csv";
+    private static final int FIRST_COLUMN = 0;
+    private static final int SECOND_COLUMN = 1;
+    private static final int THIRD_COLUMN = 2;
     /**
      * This function exports a CSV file.
      * @throws DukeException when there are errors while handling the file.
@@ -21,7 +23,7 @@ public class OpenCsv {
 
     public static void exportLockers(List<Locker> lockerList) throws DukeException {
         try {
-            Writer writer = Files.newBufferedWriter(Paths.get(STRING_ARRAY_SAMPLE));
+            Writer writer = Files.newBufferedWriter(Paths.get(CSV_OUTPUT_PATH));
 
             CSVWriter csvWriter = new CSVWriter(writer,
                     CSVWriter.DEFAULT_SEPARATOR,
@@ -35,9 +37,9 @@ public class OpenCsv {
             for (Locker l : lockerList) {
 
                 String[] details = new String[header.length];
-                details[0] = l.getSerialNumber().getSerialNumberForLocker();
-                details[1] = l.getZone().getZone();
-                details[2] = l.getTag().getTagName();
+                details[FIRST_COLUMN] = l.getSerialNumber().getSerialNumberForLocker();
+                details[SECOND_COLUMN] = l.getZone().getZone();
+                details[THIRD_COLUMN] = l.getTag().getTagName();
 
                 csvWriter.writeNext(details);
             }
