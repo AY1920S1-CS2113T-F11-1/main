@@ -59,7 +59,7 @@ public class Parser {
         case EXPORT_LOCKER_COMMAND:
             return new ExportLockerCommandParser().parse();
         default:
-            throw new DukeException("Invalid Command");
+            throw new DukeException("Invalid Command.");
         }
     }
 }
