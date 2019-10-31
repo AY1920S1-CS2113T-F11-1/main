@@ -82,13 +82,44 @@ public class Locker {
 
     /**
      * This function is used to convert the locker info into displayable strings.
-     *
      * @return a string in a format that can be used for printing out the current locker
      */
     public String toString() {
         return " Locker #" + serialNumber.getSerialNumberForLocker() + ": " + "Area: " + address.getAddress()
                 + " Zone: " + zone.getZone()
                 + " [" + getTag().tagName + "]";
+    }
+
+    /**
+     * This function is used to convert the serial number of a locker into displayable strings.
+     * @return a string in a format that can be used for printing out the serial number of a locker
+     */
+    public String serialNumberToString() {
+        return serialNumber.getSerialNumberForLocker();
+    }
+
+    /**
+     * This function is used to convert the tag of a locker into displayable strings.
+     * @return a string in a format that can be used for printing out the tag of a locker
+     */
+    public String tagToString() {
+        return getTag().tagName;
+    }
+
+    /**
+     * This function is used to convert the located zone of a locker into displayable strings.
+     * @return a string in a format that can be used for printing out the located zone of a locker
+     */
+    public String zoneToString() {
+        return zone.getZone();
+    }
+
+    /**
+     * This function is used to convert the located area of a locker into displayable strings.
+     * @return a string in a format that can be used for printing out the located area of a locker
+     */
+    public String areaToString() {
+        return address.getAddress();
     }
 
     @JsonGetter("LockerTag")

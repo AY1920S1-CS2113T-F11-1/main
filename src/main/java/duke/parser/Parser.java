@@ -18,6 +18,7 @@ public class Parser {
     private static final String EDIT_USAGE_COMMAND = "editusage";
     private static final String ASSIGN_LOCKER_COMMAND = "assign";
     private static final String LIST_COMMAND = "list";
+    private static final String TABLE_COMMAND = "table";
     private static final String EXIT_COMMAND = "bye";
     private static final String EXPORT_LOCKER_COMMAND = "export";
     private static final String HELP_COMMAND = "help";
@@ -52,6 +53,8 @@ public class Parser {
             return new EditUsageParser().parse(arguments);
         case LIST_COMMAND:
             return new ListCommandParser().parse();
+        case TABLE_COMMAND:
+            return new TableCommandParser().parse();
         case EXIT_COMMAND:
             return new ByeCommandParser().parse();
         case HELP_COMMAND:
