@@ -1,0 +1,48 @@
+= Wang Zicong - Project Portfolio
+:site-section: AboutUs
+:imagesDir: ../images
+:stylesDir: ../stylesheets
+
+== PROJECT: AddressBook - Level 3
+
+== Overview
+
+SpongeBob is an integrated solution to manage logistics,members and operations of the NUS SoC club. The current solution adopted by the club is to use various platforms like google docs, Microsoft Excel and emails. These solutions face difficulty in integrating details and thus hinder management. Our solution, is an approach to integrate the basic functionalities of all the above platforms into one so as to assist the club with their management.
+
+== Summary of contributions
+
+
+* *Code contributed*:[https://github.com/AY1920S1-CS2113T-F11-1/main/blob/master/src/main/java/duke/storage/OpenCsv.java[CSV Writer]]
+
+( Still working on "stats" of the project. Will be updating in the next version.)
+
+* *Other contributions*:
+
+** Project management:
+** Documentation:
+*** Edited contents of the User Guide: https://github.com/AY1920S1-CS2113T-F11-1/main/pull/24[#24]
+*** Edited contents of the Developer Guide: https://github.com/AY1920S1-CS2113T-F11-1/main/pull/126[#126]
+
+** Community:
+*** PRs reviewed (with non-trivial review comments): https://github.com/AY1920S1-CS2113T-F11-1/main/pull/140[#140], https://github.com/AY1920S1-CS2113T-F11-1/main/pull/135[#135], https://github.com/AY1920S1-CS2113T-F11-1/main/pull/132[#132], https://github.com/AY1920S1-CS2113T-F11-1/main/pull/77[#77], https://github.com/AY1920S1-CS2113T-F11-1/main/pull/28[#28], https://github.com/AY1920S1-CS2113T-F11-1/main/pull/17[#17], https://github.com/AY1920S1-CS2113T-F11-1/main/pull/13[#13]
+*** Contributed to forum discussions (examples:  https://github.com/AY1920S1-CS2113T-F11-1/main/issues/119[#119], https://github.com/AY1920S1-CS2113T-F11-1/main/issues/103[#103], https://github.com/AY1920S1-CS2113T-F11-1/main/issues/102[#102], https://github.com/AY1920S1-CS2113T-F11-1/main/issues/101[#101], https://github.com/AY1920S1-CS2113T-F11-1/main/issues/98[#98])
+
+** Tools:
+*** Integrated a third party library (OpenCSV) to the project (https://github.com/AY1920S1-CS2113T-F11-1/main/blob/master/build.gradle[OpenCSV])
+
+== Contributions to the User Guide
+
+
+|===
+|_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
+|===
+
+https://github.com/AY1920S1-CS2113T-F11-1/main/pull/24[#24]
+
+== Contributions to the Developer Guide
+
+|===
+|_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
+|===
+
+https://github.com/AY1920S1-CS2113T-F11-1/main/issues/119[#119]
