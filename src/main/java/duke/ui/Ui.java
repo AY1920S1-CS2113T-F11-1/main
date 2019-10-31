@@ -238,24 +238,36 @@ public class Ui {
         printDash();
     }
 
+    /**
+     * This function prints the syntax for addlocker command.
+     */
     public void showAddSyntax() {
         printSpaces("To add a locker into the system:");
         printSpaces("  addlocker s/__ a/__ z/__");
         System.out.println();
     }
 
+    /**
+     * This function prints the syntax for addbatch command.
+     */
     public void showAddBatchSyntax() {
         printSpaces("To add a batch of lockers into the system:");
         printSpaces("  addbatch s/__ u/__ a/__ z/__");
         System.out.println();
     }
 
+    /**
+     * This function prints the syntax for deletelocker command.
+     */
     public void showDeleteSyntax() {
         printSpaces("To delete a locker from the system:");
         printSpaces("  deletelocker XXXX");
         System.out.println();
     }
 
+    /**
+     * This function prints the syntax for editlocker command.
+     */
     public void showEditSyntax() {
         printSpaces("To edit the information of a locker:");
         printSpaces("  editlocker XXXX s/__ a/__ z/__ c/__");
@@ -263,12 +275,18 @@ public class Ui {
         System.out.println();
     }
 
+    /**
+     * This function prints the syntax for assign command.
+     */
     public void showAssignSyntax() {
         printSpaces("To assign a locker for rental to a student:");
         printSpaces("  assign n/__ i/__ e/__ m/__ f/__ t/__ p/__");
         System.out.println();
     }
 
+    /**
+     * This function prints the syntax for list and bye command.
+     */
     public void showOtherSyntax() {
         printSpaces("To show the list of lockers:");
         printSpaces("  list");
@@ -278,6 +296,9 @@ public class Ui {
         System.out.println();
     }
 
+    /**
+     * This function prints the legends for help manual.
+     */
     public void showSyntaxLegends() {
         printSpaces("-LEGENDS-");
         printSpaces("XXXX - serial number of selected locker");
@@ -296,12 +317,18 @@ public class Ui {
         System.out.println();
     }
 
+    /**
+     * This function prints the notes in help manual.
+     */
     public void showSyntaxNote() {
         printSpaces("(Note: All the tokens can be assigned in any order.)");
     }
 
+    /**
+     * This function prints the help manual when requested by the user.
+     */
     public void printHelp() {
-        printSpaces("HELP - USER MANUAL");
+        printSpaces("HELP MANUAL");
         System.out.println();
         showAddSyntax();
         showAddBatchSyntax();
