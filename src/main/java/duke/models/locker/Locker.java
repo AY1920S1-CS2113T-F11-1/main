@@ -1,8 +1,10 @@
 package duke.models.locker;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
+
+
 import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
 import duke.models.tag.Tag;
 
 
@@ -11,10 +13,10 @@ import java.util.Objects;
 import static java.util.Objects.requireNonNull;
 
 public class Locker {
-    private final SerialNumber serialNumber;
-    private final Address address;
-    private final Zone zone;
-    private final Tag tag;
+    private SerialNumber serialNumber;
+    private Address address;
+    private Zone zone;
+    private Tag tag;
 
     /**
      * Locker stores all the information regarding the status of the locker.
@@ -25,11 +27,8 @@ public class Locker {
      * @param tag          instance of the class Tag that stores the status of the locker
      */
 
-    @JsonCreator
-    public Locker(@JsonProperty("serial") SerialNumber serialNumber,
-                  @JsonProperty("address") Address address,
-                  @JsonProperty("zone") Zone zone,
-                  @JsonProperty("tag") Tag tag) {
+    public Locker(SerialNumber serialNumber, Address address, Zone zone,
+                  Tag tag) {
         requireNonNull(serialNumber);
         requireNonNull(address);
         requireNonNull(zone);
@@ -38,6 +37,10 @@ public class Locker {
         this.address = address;
         this.zone = zone;
         this.tag = tag;
+    }
+
+    public Locker() {
+
     }
 
     public void setTagAs(String tagName) {
@@ -61,34 +64,103 @@ public class Locker {
     }
 
     /**
+     * checks if the locker is already present in the lockerList.
+     * @param other to check if the object is already present
+     * @return true if the object is present, false otherwise
+     */
+    public boolean isPresent(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof Locker)) {
+            return false;
+        }
+
+        return this.getSerialNumber().equals(((Locker) other).getSerialNumber());
+    }
+
+    /**
      * This function is used to convert the locker info into displayable strings.
      *
      * @return a string in a format that can be used for printing out the current locker
      */
     public String toString() {
-        return "Locker #" + serialNumber.getSerialNumberForLocker() + ": " + "Area: " + address.getAddress()
+        return " Locker #" + serialNumber.getSerialNumberForLocker() + ": " + "Area: " + address.getAddress()
                 + " Zone: " + zone.getZone()
                 + " [" + getTag().tagName + "]";
     }
 
-    @JsonGetter("tag")
+    /**
+     * This function is used to convert the serial number of a locker into displayable strings.
+     * @return a string in a format that can be used for printing out the serial number of a locker
+     */
+    public String serialNumberToString() {
+        return serialNumber.getSerialNumberForLocker();
+    }
+
+    /**
+     * This function is used to convert the tag of a locker into displayable strings.
+     * @return a string in a format that can be used for printing out the tag of a locker
+     */
+    public String tagToString() {
+        return getTag().tagName;
+    }
+
+    /**
+     * This function is used to convert the located zone of a locker into displayable strings.
+     * @return a string in a format that can be used for printing out the located zone of a locker
+     */
+    public String zoneToString() {
+        return zone.getZone();
+    }
+
+    /**
+     * This function is used to convert the located area of a locker into displayable strings.
+     * @return a string in a format that can be used for printing out the located area of a locker
+     */
+    public String areaToString() {
+        return address.getAddress();
+    }
+
+    @JsonGetter("LockerTag")
     public Tag getTag() {
         return tag;
     }
 
-    @JsonGetter("serial")
+    @JsonSetter("LockerTag")
+    public void setTag(Tag tag) {
+        this.tag = tag;
+    }
+
+    @JsonGetter("LockerSerial")
     public SerialNumber getSerialNumber() {
         return serialNumber;
     }
 
-    @JsonGetter("address")
+    @JsonSetter("LockerSerial")
+    public void setSerialNumber(SerialNumber serialNumber) {
+        this.serialNumber = serialNumber;
+    }
+
+    @JsonGetter("LockerAddress")
     public Address getAddress() {
         return address;
     }
 
-    @JsonGetter("zone")
+    @JsonSetter("LockerAddress")
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    @JsonGetter("LockerZone")
     public Zone getZone() {
         return zone;
+    }
+
+    @JsonSetter("LockerZone")
+    public void setZone(Zone zone) {
+        this.zone = zone;
     }
 
     /* We need to override function equals() and hashCode() in order to account
@@ -108,7 +180,7 @@ public class Locker {
         return otherLocker.getSerialNumber().equals(this.getSerialNumber())
                 && otherLocker.getAddress().equals(this.getAddress())
                 && otherLocker.getZone().equals(this.getZone())
-                && otherLocker.getTag().equals(this.getTag()); //handles checks for equality
+                && otherLocker.getTag().equals(this.getTag());//handles checks for equality
     }
 
     @Override
