@@ -206,6 +206,14 @@ public class Ui {
     }
 
     /**
+     * This function prints the tasks found.
+     */
+    public void readStats() {
+        printSpaces(" Here are the stats found:");
+        printDash();
+    }
+
+    /**
      * This function prints the tasks that match a given keyword.
      * @param taskList stores the tasks that match a given keyword.
      */
