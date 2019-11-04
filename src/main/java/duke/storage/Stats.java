@@ -21,7 +21,7 @@ public class Stats {
     private static int UnAuthorized = 0;
 
     /**
-     * This function lists out the stats for each tag
+     * This function lists out the stats for each tag.
      * @throws DukeException when there are errors while handling the file.
      */
 
