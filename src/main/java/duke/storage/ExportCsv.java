@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 import java.io.IOException;
 import java.util.List;
 
-public class OpenCsv {
+public class ExportCsv {
     private static final String CSV_OUTPUT_PATH = "data.csv";
     private static final int FIRST_COLUMN = 0;
     private static final int SECOND_COLUMN = 1;
