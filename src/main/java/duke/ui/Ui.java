@@ -206,6 +206,14 @@ public class Ui {
     }
 
     /**
+     * This function tells the user that SpongeBob has imported the CSV file.
+     */
+    public void importMessage() {
+        printSpaces("Noted. I have imported the CSV file to SpongeBob");
+        printDash();
+    }
+
+    /**
      * This function prints the tasks found.
      */
     public void readStats() {
