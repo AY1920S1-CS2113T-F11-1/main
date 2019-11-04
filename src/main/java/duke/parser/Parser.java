@@ -2,6 +2,7 @@ package duke.parser;
 
 import duke.exceptions.DukeException;
 import duke.logic.commands.Command;
+import duke.logic.commands.ImportLockerCommand;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,6 +21,7 @@ public class Parser {
     private static final String LIST_COMMAND = "list";
     private static final String EXIT_COMMAND = "bye";
     private static final String EXPORT_LOCKER_COMMAND = "export";
+    private static final String IMPORT_LOCKER_COMMAND = "import";
     private static final String HELP_COMMAND = "help";
     private static final String STATS_COMMAND = "stats";
     /**
@@ -59,6 +61,8 @@ public class Parser {
             return new HelpCommandParser().parse();
         case EXPORT_LOCKER_COMMAND:
             return new ExportLockerCommandParser().parse();
+        case IMPORT_LOCKER_COMMAND:
+            return new ImportLockerCommandParser().parse();
         case STATS_COMMAND:
             return new StatsCommandParser().parse();
         default:

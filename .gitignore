@@ -20,7 +20,8 @@ bin/
 /text-ui-test/input.txt
 /text-ui-test/storeData.txt
 /storeData.json
-/out.csv
+/src/main/java/data/export.csv
+/src/main/java/data/import.csv
 src/main/java/data/
 
 

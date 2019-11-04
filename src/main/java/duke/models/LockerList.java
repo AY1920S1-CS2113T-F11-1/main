@@ -31,7 +31,7 @@ public class LockerList {
     /**
      * Used to check if the lockers are already present in the list.
      * @param newLockers list of lockers to be checked
-     * @return true if atleast one of the locker is present
+     * @return true if at least one of the locker is present
      */
     public boolean areLockersPresent(List<Locker> newLockers) {
         requireNonNull(newLockers);

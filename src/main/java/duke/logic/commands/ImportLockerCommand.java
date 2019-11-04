@@ -10,7 +10,7 @@ public class ImportLockerCommand extends Command {
 
     @Override
     public void execute(LockerList lockerList, Ui ui, FileHandling storage) throws DukeException {
-        ui.exportMessage();
+        ui.importMessage();
         ImportCsv.importLockers(lockerList.getLockerList());
 
     }
