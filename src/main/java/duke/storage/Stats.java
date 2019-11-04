@@ -25,53 +25,51 @@ public class Stats {
      * @throws DukeException when there are errors while handling the file.
      */
 
-    public static void readStats(List<Locker> lockerList) {
+    public static void readStats(List<Locker> lockerList) throws DukeException {
+        try {
+            for (Locker l : lockerList) {
 
-        for (Locker l : lockerList) {
-
-            String[] details = new String[len];
-            details[zone] = l.getZone().getZone();
-            details[address] = l.getAddress().getAddress();
-            details[tag] = l.getTag().getTagName();
+                String[] details = new String[len];
+                details[zone] = l.getZone().getZone();
+                details[address] = l.getAddress().getAddress();
+                details[tag] = l.getTag().getTagName();
 
 
-            if (details[zone].equals("A"))  {
-                countZoneA += 1;
-            }
-            if (details[zone].equals("B"))  {
-                countZoneB += 1;
+                if (details[zone].equals("A")) {
+                    countZoneA += 1;
+                } else if (details[zone].equals("B")) {
+                    countZoneB += 1;
+                }
+
+                if (details[address].equals("com1")) {
+                    address1 += 1;
+                } else if (details[address].equals("com2")) {
+                    address2 += 1;
+                }
+
+                if (details[tag].equals("in-use")) {
+                    inUse += 1;
+                } else if (details[tag].equals("not-in-use")) {
+                    NotinUse += 1;
+                } else if (details[tag].equals("broken")) {
+                    Broken += 1;
+                } else if (details[tag].equals("unauthorized")) {
+                    UnAuthorized += 1;
+                }
             }
 
-            if (details[address].equals("com1"))  {
-                address1 += 1;
-            }
-            if (details[address].equals("com2"))  {
-                address2 += 1;
-            }
+            System.out.print("Zone[A]:" + countZoneA + "    ");
+            System.out.println("Zone[B]:" + countZoneB);
 
-            if (details[tag].equals("in-use"))  {
-                inUse += 1;
-            }
-            if (details[tag].equals("not-in-use"))  {
-                NotinUse += 1;
-            }
-            if (details[tag].equals("broken"))  {
-                Broken += 1;
-            }
-            if (details[tag].equals("unauthorized"))  {
-                UnAuthorized += 1;
-            }
+            System.out.print("COM-[1]:" + address1 + "    ");
+            System.out.println("COM-[2]:" + address2);
+
+            System.out.print("In-Use:" + inUse + "    ");
+            System.out.print("Not-In-Use:" + NotinUse + "    ");
+            System.out.print("Broken:" + Broken + "    ");
+            System.out.println("Unauthorized:" + UnAuthorized);
+        } catch (NullPointerException e) {
+            throw new DukeException(" Unable to get stats ");
         }
-
-        System.out.print("Zone[A]:" + countZoneA + "    ");
-        System.out.println("Zone[B]:" + countZoneB);
-
-        System.out.print("COM-[1]:" + address1 + "    ");
-        System.out.println("COM-[2]:" + address2);
-
-        System.out.print("In-Use:" + inUse + "    ");
-        System.out.print("Not-In-Use:" + NotinUse + "    ");
-        System.out.print("Broken:" + Broken + "    ");
-        System.out.println("Unauthorized:" + UnAuthorized);
     }
 }
