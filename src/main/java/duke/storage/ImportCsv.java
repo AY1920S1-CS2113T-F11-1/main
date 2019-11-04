@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ImportCsv {
-    private static final String CSV_INPUT_PATH = "import.csv";
+    private static final String CSV_INPUT_PATH = "./src/main/java/data/import.csv";
 
     private static final int FIRST_COLUMN = 0;
     private static final int SECOND_COLUMN = 1;
