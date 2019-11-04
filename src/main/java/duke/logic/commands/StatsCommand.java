@@ -11,6 +11,6 @@ public class StatsCommand extends Command {
     @Override
     public void execute(LockerList lockerList, Ui ui, FileHandling storage) throws DukeException {
         ui.readStats();
-        Stats.ReadStats(lockerList.getLockerList());
+        Stats.readStats(lockerList.getLockerList());
     }
 }

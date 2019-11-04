@@ -20,7 +20,12 @@ public class Stats {
     private static int Broken = 0;
     private static int UnAuthorized = 0;
 
-    public static void ReadStats(List<Locker> lockerList) {
+    /**
+     * This function lists out the stats for each tag
+     * @throws DukeException when there are errors while handling the file.
+     */
+
+    public static void readStats(List<Locker> lockerList) {
 
         for (Locker l : lockerList) {
 
@@ -31,30 +36,30 @@ public class Stats {
 
 
             if (details[zone].equals("A"))  {
-                countZoneA +=1;
+                countZoneA += 1;
             }
             if (details[zone].equals("B"))  {
-                countZoneB +=1;
+                countZoneB += 1;
             }
 
             if (details[address].equals("com1"))  {
-                address1 +=1;
+                address1 += 1;
             }
             if (details[address].equals("com2"))  {
-                address2 +=1;
+                address2 += 1;
             }
 
             if (details[tag].equals("in-use"))  {
-                inUse +=1;
+                inUse += 1;
             }
             if (details[tag].equals("not-in-use"))  {
-                NotinUse +=1;
+                NotinUse += 1;
             }
             if (details[tag].equals("broken"))  {
-                Broken +=1;
+                Broken += 1;
             }
             if (details[tag].equals("unauthorized"))  {
-                UnAuthorized +=1;
+                UnAuthorized += 1;
             }
         }
 
