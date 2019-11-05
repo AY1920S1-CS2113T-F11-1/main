@@ -35,7 +35,7 @@ public class ImportCsv {
 
             String[] importList;
             int i = 0;
-            while ((importList = csvReader.readNext()) != null ) {
+            while ((importList = csvReader.readNext()) != null) {
                 if (i < lockerList.size()) {
                     lockerList.get(i).getSerialNumber().serialNumberForLocker = importList[FIRST_COLUMN];
                     lockerList.get(i).getZone().zone = importList[SECOND_COLUMN];
