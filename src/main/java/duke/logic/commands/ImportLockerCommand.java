@@ -12,6 +12,6 @@ public class ImportLockerCommand extends Command {
     public void execute(LockerList lockerList, Ui ui, FileHandling storage) throws DukeException {
         ui.importMessage();
         ImportCsv.importLockers(lockerList.getLockerList());
-        storage.saveData(lockerList);
+        //storage.saveData(lockerList);
     }
 }
