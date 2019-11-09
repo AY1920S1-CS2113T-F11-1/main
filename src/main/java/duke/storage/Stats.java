@@ -39,19 +39,22 @@ public class Stats {
                 if (!mapZone.containsKey(details[zone])) {
                     mapZone.put(details[zone],temp);
                 } else {
-                    mapZone.replace(details[zone],mapZone.get(details[zone]) + 1);
+                    mapZone.replace(details[zone],
+                            mapZone.get(details[zone]) + 1);
                 }
 
                 if (!mapAddress.containsKey(details[address])) {
                     mapAddress.put(details[address],temp);
                 } else {
-                    mapAddress.replace(details[address],mapAddress.get(details[address]) + 1);
+                    mapAddress.replace(details[address],
+                            mapAddress.get(details[address]) + 1);
                 }
 
                 if (!mapTag.containsKey(details[tag])) {
                     mapTag.put(details[tag],temp);
                 } else {
-                    mapTag.replace(details[tag],mapTag.get(details[tag]) + 1);
+                    mapTag.replace(details[tag],
+                            mapTag.get(details[tag]) + 1);
                 }
 
             }
