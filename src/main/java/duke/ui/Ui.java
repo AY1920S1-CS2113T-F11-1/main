@@ -54,16 +54,6 @@ public class Ui {
     }
 
     /**
-     * This function tells the user that Duke has marked the task as done.
-     * @param printStr stores the task that has been marked as done.
-     */
-    public void printMarkAsDone(String printStr) {
-        printSpaces(" Nice! I have marked this task as done:");
-        printSpaces(" " + printStr);
-        printDash();
-    }
-
-    /**
      * This function is used to indicate the user that the usage has been deleted.
      */
     public void showDeleteUsage() {
@@ -141,7 +131,7 @@ public class Ui {
         printSpaces(" There are no available lockers at the moment. ");
         printSpaces(" Unfortunately I will have to terminate the subscription of the student");
     }
-
+    
     /**
      * This function tells the user that Duke has snoozed/postponed/rescheduled the task.
      * @param taskA stores the task that is to be added to the list.

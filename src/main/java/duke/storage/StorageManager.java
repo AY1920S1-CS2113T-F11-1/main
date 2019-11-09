@@ -1,11 +1,7 @@
 package duke.storage;
 
-
 import duke.exceptions.DukeException;
 import duke.models.LockerList;
-import duke.models.locker.Locker;
-
-import java.util.List;
 
 import static java.util.Objects.requireNonNull;
 
@@ -19,6 +15,7 @@ public class StorageManager implements Storage {
         fileStorage = new FileStorage(fileName);
         writeToCsv = new ExportCsv();
         selectionCsv = new ExportSelection();
+
     }
 
     @Override

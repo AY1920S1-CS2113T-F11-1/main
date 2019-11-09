@@ -50,6 +50,7 @@ public class ExportCsv {
                 details[FORTH_COLUMN] = l.getTag().getTagName();
 
                 if (details[FORTH_COLUMN].equals("in-use")) {
+                    
                     details[FIFTH_COLUMN] = l.getUsage().get().getStudent().getName().getName();
                     details[SIXTH_COLUMN] = l.getUsage().get().getStudent().getMatricNumber().getMatricId();
                     details[SEVENTH_COLUMN] = l.getUsage().get().getStudent().getMajor().getCourse();
