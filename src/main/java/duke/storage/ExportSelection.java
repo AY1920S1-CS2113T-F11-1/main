@@ -23,13 +23,6 @@ public class ExportSelection {
 
     public static void exportSelect(List<Locker> lockerList, String item) throws DukeException {
         try {
-            Writer writer = Files.newBufferedWriter(Paths.get(CSV_OUTPUT_PATH));
-
-            CSVWriter csvWriter = new CSVWriter(writer,
-                    CSVWriter.DEFAULT_SEPARATOR,
-                    CSVWriter.NO_QUOTE_CHARACTER,
-                    CSVWriter.DEFAULT_ESCAPE_CHARACTER,
-                    CSVWriter.DEFAULT_LINE_END);
 
             ArrayList<String> title = new ArrayList<String>();
 
@@ -64,6 +57,14 @@ public class ExportSelection {
                 header[j] = title.get(j);
             }
 
+            Writer writer = Files.newBufferedWriter(Paths.get(CSV_OUTPUT_PATH));
+
+            CSVWriter csvWriter = new CSVWriter(writer,
+                    CSVWriter.DEFAULT_SEPARATOR,
+                    CSVWriter.NO_QUOTE_CHARACTER,
+                    CSVWriter.DEFAULT_ESCAPE_CHARACTER,
+                    CSVWriter.DEFAULT_LINE_END);
+
             csvWriter.writeNext(header);
 
             for (Locker l : lockerList) {
@@ -76,38 +77,38 @@ public class ExportSelection {
                 }
                 if (title.contains("Locker")) {
                     details[count] = l.getSerialNumber().getSerialNumberForLocker();
-                    count +=1;
+                    count += 1;
                 }
                 if (title.contains("Address")) {
                     details[count] = l.getAddress().getAddress();
-                    count +=1;
+                    count += 1;
                 }
                 if (title.contains("Zone")) {
                     details[count] = l.getZone().getZone();
-                    count +=1;
+                    count += 1;
                 }
                 if (title.contains("Status")) {
                     details[count] = l.getTag().getTagName();
                     zoneStats = details[count];
-                    count +=1;
+                    count += 1;
                 }
 
                 if (zoneStats.equals("in-use")) {
                     if (title.contains("Name")) {
                         details[count] = l.getUsage().get().getStudent().getName().getName();
-                        count +=1;
+                        count += 1;
                     }
                     if (title.contains("Matrix")) {
                         details[count] = l.getUsage().get().getStudent().getMatricNumber().getMatricId();
-                        count +=1;
+                        count += 1;
                     }
                     if (title.contains("Course")) {
                         details[count] = l.getUsage().get().getStudent().getMajor().getCourse();
-                        count +=1;
+                        count += 1;
                     }
                     if (title.contains("Email")) {
                         details[count] = l.getUsage().get().getStudent().getEmail().getEmail();
-                        count +=1;
+                        count += 1;
                     }
                 }
 

@@ -11,6 +11,9 @@ public class StorageManager implements Storage {
     private ExportCsv writeToCsv;
     private ExportSelection selectionCsv;
 
+    /**
+     * This function managers storage data from the file.
+     */
     public StorageManager(String fileName) {
         fileStorage = new FileStorage(fileName);
         writeToCsv = new ExportCsv();

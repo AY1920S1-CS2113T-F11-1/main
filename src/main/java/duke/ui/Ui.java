@@ -16,6 +16,7 @@ public class Ui {
     public String read() {
         return sc.next();
     }
+
     /**
      * This function responsible for printing a line.
      */
