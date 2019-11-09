@@ -4,9 +4,6 @@ import com.opencsv.CSVWriter;
 
 import duke.exceptions.DukeException;
 import duke.models.locker.Locker;
-import duke.models.student.Email;
-import duke.models.student.Name;
-import duke.models.student.Student;
 
 import java.io.Writer;
 import java.nio.file.Files;
@@ -15,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class ExportCsv {
-    private static final String CSV_OUTPUT_PATH = "export.csv";
+    private static final String CSV_OUTPUT_PATH = "./src/main/java/data/out.csv";
     private static final int FIRST_COLUMN = 0;
     private static final int SECOND_COLUMN = 1;
     private static final int THIRD_COLUMN = 2;
@@ -49,8 +46,16 @@ public class ExportCsv {
                 String[] details = new String[header.length];
                 details[FIRST_COLUMN] = l.getSerialNumber().getSerialNumberForLocker();
                 details[SECOND_COLUMN] = l.getAddress().getAddress();
-                details[FORTH_COLUMN] = l.getZone().getZone();
-                details[THIRD_COLUMN] = l.getTag().getTagName();
+                details[THIRD_COLUMN] = l.getZone().getZone();
+                details[FORTH_COLUMN] = l.getTag().getTagName();
+
+                if (details[THIRD_COLUMN].equals("in-use")) {
+                    details[FIFTH_COLUMN] = l.getUsage().get().getStudent().getName().getName();
+                    details[SIXTH_COLUMN] = l.getUsage().get().getStudent().getMatricNumber().getMatricId();
+                    details[SEVENTH_COLUMN] = l.getUsage().get().getStudent().getMajor().getCourse();
+                    details[EIGHTH_COLUMN] = l.getUsage().get().getStudent().getEmail().getEmail();
+                }
+
                 csvWriter.writeNext(details);
             }
 
