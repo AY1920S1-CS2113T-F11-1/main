@@ -39,7 +39,6 @@ public class StatsCommand extends Command {
                 details[tag] = l.getTag().getTagName();
                 details[zone] = details[zone].toUpperCase();
                 details[address] = details[address].toLowerCase();
-                //details[usage] = l.getUsage()
 
                 if (!mapZone.containsKey(details[zone])) {
                     mapZone.put(details[zone],temp);
