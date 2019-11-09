@@ -33,12 +33,15 @@ public class StatsCommand extends Command {
             String[] details = new String[len];
 
             for (Locker l : lockerList) {
+
                 Integer temp = 1;
                 details[zone] = l.getZone().getZone();
                 details[address] = l.getAddress().getAddress();
                 details[tag] = l.getTag().getTagName();
+
                 details[zone] = details[zone].toUpperCase();
                 details[address] = details[address].toLowerCase();
+                details[tag] = details[tag].toLowerCase();
 
                 if (!mapZone.containsKey(details[zone])) {
                     mapZone.put(details[zone],temp);

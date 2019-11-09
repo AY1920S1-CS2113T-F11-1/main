@@ -49,7 +49,7 @@ public class ExportCsv {
                 details[THIRD_COLUMN] = l.getZone().getZone();
                 details[FORTH_COLUMN] = l.getTag().getTagName();
 
-                if (details[THIRD_COLUMN].equals("in-use")) {
+                if (details[FORTH_COLUMN].equals("in-use")) {
                     details[FIFTH_COLUMN] = l.getUsage().get().getStudent().getName().getName();
                     details[SIXTH_COLUMN] = l.getUsage().get().getStudent().getMatricNumber().getMatricId();
                     details[SEVENTH_COLUMN] = l.getUsage().get().getStudent().getMajor().getCourse();
@@ -65,4 +65,5 @@ public class ExportCsv {
             throw new DukeException(" Unable to export csv ");
         }
     }
+
 }

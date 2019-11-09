@@ -21,6 +21,7 @@ public class Parser {
     private static final String LIST_COMMAND = "list";
     private static final String EXIT_COMMAND = "bye";
     private static final String EXPORT_LOCKER_COMMAND = "export";
+    private static final String EXPORT_SELECT_COMMAND = "exports";
     private static final String HELP_COMMAND = "help";
     private static final String STATS_COMMAND = "stats";
     /**
@@ -62,6 +63,8 @@ public class Parser {
             return new HelpCommandParser().parse();
         case EXPORT_LOCKER_COMMAND:
             return new ExportLockerCommandParser().parse();
+        case EXPORT_SELECT_COMMAND:
+            return new ExportLockerSelectCommandParser().parse(arguments);
         case STATS_COMMAND:
             return new StatsCommandParser().parse();
         default:

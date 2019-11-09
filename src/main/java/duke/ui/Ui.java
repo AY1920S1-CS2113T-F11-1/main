@@ -13,7 +13,9 @@ public class Ui {
         return sc.nextLine();
     }
 
-
+    public String read() {
+        return sc.next();
+    }
     /**
      * This function responsible for printing a line.
      */
@@ -226,6 +228,15 @@ public class Ui {
         printSpaces("Noted. I have exported the details to a new CSV file");
         printDash();
     }
+
+    /**
+     * This function tells the user that SpongeBob has exported the CSV file.
+     */
+    public void exportSelect() {
+        printSpaces("Noted. I have exported the selected details to a new CSV file");
+        printDash();
+    }
+
 
     /**
      * This function prints the tasks that match a given keyword.

@@ -3,6 +3,9 @@ package duke.storage;
 
 import duke.exceptions.DukeException;
 import duke.models.LockerList;
+import duke.models.locker.Locker;
+
+import java.util.List;
 
 import static java.util.Objects.requireNonNull;
 
@@ -10,10 +13,12 @@ public class StorageManager implements Storage {
 
     private FileStorage fileStorage;
     private ExportCsv writeToCsv;
+    private ExportSelection selectionCsv;
 
     public StorageManager(String fileName) {
         fileStorage = new FileStorage(fileName);
         writeToCsv = new ExportCsv();
+        selectionCsv = new ExportSelection();
     }
 
     @Override
@@ -31,5 +36,10 @@ public class StorageManager implements Storage {
     public void exportAsCsv(LockerList lockerList) throws DukeException {
         requireNonNull(lockerList);
         writeToCsv.exportLockers(lockerList.getAllLockers());
+    }
+
+    public void exportSelection(LockerList lockerList, String input) throws DukeException {
+        requireNonNull(lockerList);
+        selectionCsv.exportSelect(lockerList.getAllLockers(),input);
     }
 }

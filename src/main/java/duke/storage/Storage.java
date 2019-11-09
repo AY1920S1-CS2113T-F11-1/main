@@ -1,5 +1,6 @@
 package duke.storage;
 
+import duke.Duke;
 import duke.exceptions.DukeException;
 import duke.models.LockerList;
 
@@ -10,4 +11,6 @@ public interface Storage {
     LockerList retrieveData() throws DukeException;
 
     void exportAsCsv(LockerList listToExport) throws DukeException;
+
+    void exportSelection(LockerList lockerList,String input) throws DukeException;
 }
