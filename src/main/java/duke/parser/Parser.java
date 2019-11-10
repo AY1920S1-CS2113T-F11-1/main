@@ -24,11 +24,7 @@ public class Parser {
     private static final Pattern GENERAL_COMMAND_FORMAT =
             Pattern.compile("(?<commandType>\\S+)(?<arguments>.*)");
 
-    private static final String LIST_COMMAND = "list";
-    private static final String EXIT_COMMAND = "bye";
-    private static final String EXPORT_LOCKER_COMMAND = "export";
     private static final String EXPORT_SELECT_COMMAND = "exports";
-    private static final String HELP_COMMAND = "help";
     private static final String COMMAND_TYPE = "commandType";
     private static final String ARGUMENTS = "arguments";
     private static final String INVALID_FORMAT = " The command entered has invalid format. "

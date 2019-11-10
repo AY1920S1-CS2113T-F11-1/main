@@ -13,10 +13,6 @@ public class Ui {
         return sc.nextLine();
     }
 
-    public String read() {
-        return sc.next();
-    }
-
     /**
      * This function responsible for printing a line.
      */
@@ -132,30 +128,6 @@ public class Ui {
         printSpaces(" There are no available lockers at the moment. ");
         printSpaces(" Unfortunately I will have to terminate the subscription of the student");
     }
-    
-    /**
-     * This function tells the user that Duke has snoozed/postponed/rescheduled the task.
-     * @param taskA stores the task that is to be added to the list.
-     * @param type stores whether that task is an event or a deadline
-     * @param command stores whether user command is snooze or postpone or reschedule
-     */
-    public void printSnoozeTask(String taskA, String type, String command) {
-        switch (type) {
-        case "E":
-            printSpaces(" I have successfully " + command + "d" + " the data and time of this event:");
-            printSpaces("  " + taskA);
-            printDash();
-            break;
-        case "D":
-            printSpaces(" I have successfully " + command + "d" + " the data and time of this deadline:");
-            printSpaces("  " + taskA);
-            printDash();
-            break;
-        default:
-            printSpaces(" Invalid command");
-        }
-
-    }
 
     private void showNumTasks(int size) {
         printSpaces(" Now you have " + size
@@ -227,22 +199,6 @@ public class Ui {
         printSpaces("Noted. I have exported the selected details to a new CSV file");
         printDash();
     }
-
-
-    /**
-     * This function prints the tasks that match a given keyword.
-     * @param taskList stores the tasks that match a given keyword.
-     */
-    public void keywordPrint(List<Locker> taskList) {
-        printSpaces(" Here are the matching tasks in your list:");
-        showList(taskList);
-    }
-
-    public void getRemindersList(List<Locker> taskList) {
-        printSpaces(" Here are your deadlines:");
-        showList(taskList);
-    }
-
 
     /**
      * This function prints the message when there is an error in loading data from the file.

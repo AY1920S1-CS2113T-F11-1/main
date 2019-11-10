@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ExportSelection {
-    private static final String CSV_OUTPUT_PATH = "export_selected.csv";
+    private static final String CSV_OUTPUT_PATH = "export.csv";
 
     /**
      * This function exports a CSV file based on the input tags keyed in.
