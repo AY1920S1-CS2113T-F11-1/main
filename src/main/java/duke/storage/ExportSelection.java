@@ -6,11 +6,12 @@ import duke.exceptions.DukeException;
 import duke.models.locker.Locker;
 
 import java.io.Writer;
+import java.io.IOException;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.io.IOException;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ExportSelection {
@@ -24,7 +25,7 @@ public class ExportSelection {
     public static void exportSelect(List<Locker> lockerList, String item) throws DukeException {
         try {
 
-            ArrayList<String> title = new ArrayList<String>();
+            ArrayList<String> title = new ArrayList<>();
 
             item = item.toLowerCase();
 
@@ -51,6 +52,12 @@ public class ExportSelection {
             }
             if (item.contains("email")) {
                 title.add("Email");
+            }
+            if (item.contains("startdate")) {
+                title.add("Start-Date");
+            }
+            if (item.contains("enddate")) {
+                title.add("End-Date");
             }
 
             String[] header = new String[title.size()];
@@ -110,6 +117,14 @@ public class ExportSelection {
                     }
                     if (title.contains("Email")) {
                         details[count] = l.getUsage().get().getStudent().getEmail().getEmail();
+                        count += 1;
+                    }
+                    if (title.contains("Start-Date")) {
+                        details[count] = l.getUsage().get().getStartDate().getDate();
+                        count += 1;
+                    }
+                    if (title.contains("End-Date")) {
+                        details[count] = l.getUsage().get().getEndDate().getDate();
                         count += 1;
                     }
                 }

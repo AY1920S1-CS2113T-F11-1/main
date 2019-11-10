@@ -1,0 +1,5 @@
+Locker,Address,Zone,Status,Name,Start-Date,End-Date
+1234,com1,A,in-use,JohnDoe,22-10-2019,30-12-2019
+123,com1,A,in-use,JohnDoe,22-10-2019,30-11-2019
+1,coM1,A,not-in-use,,,
+2,COm1,A,not-in-use,,,
