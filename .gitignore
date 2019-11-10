@@ -21,7 +21,6 @@ bin/
 /text-ui-test/storeData.txt
 /storeData.json
 /export.csv
-/export_selected.csv
 src/main/java/data/
 
 

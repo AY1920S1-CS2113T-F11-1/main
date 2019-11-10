@@ -11,6 +11,7 @@ import duke.logic.commands.DeleteUsageCommand;
 import duke.logic.commands.EditLockerCommand;
 import duke.logic.commands.EditUsageCommand;
 import duke.logic.commands.ExportLockerCommand;
+import duke.logic.commands.ExportLockerSelectCommand;
 import duke.logic.commands.HelpCommand;
 import duke.logic.commands.ListCommand;
 
@@ -24,7 +25,6 @@ public class Parser {
     private static final Pattern GENERAL_COMMAND_FORMAT =
             Pattern.compile("(?<commandType>\\S+)(?<arguments>.*)");
 
-    private static final String EXPORT_SELECT_COMMAND = "exports";
     private static final String COMMAND_TYPE = "commandType";
     private static final String ARGUMENTS = "arguments";
     private static final String INVALID_FORMAT = " The command entered has invalid format. "
@@ -61,10 +61,6 @@ public class Parser {
             return new EditLockerCommandParser().parse(arguments);
         case EditUsageCommand.COMMAND_WORD:
             return new EditUsageParser().parse(arguments);
-
-        case EXPORT_SELECT_COMMAND:
-            return new ExportLockerSelectCommandParser().parse(arguments);
-
         case ListCommand.COMMAND_WORD:
             return new ListCommand();
         case HelpCommand.COMMAND_WORD:
@@ -73,6 +69,8 @@ public class Parser {
             return new ByeCommand();
         case ExportLockerCommand.COMMAND_WORD:
             return new ExportLockerCommand();
+        case ExportLockerSelectCommand.COMMAND_WORD:
+            return new ExportLockerSelectCommandParser().parse(arguments);
 
         case STATS_COMMAND:
             return new StatsCommandParser().parse();
