@@ -1,6 +1,5 @@
 package duke.storage;
 
-import duke.Duke;
 import duke.exceptions.DukeException;
 import duke.models.LockerList;
 

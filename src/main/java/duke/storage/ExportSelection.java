@@ -44,8 +44,8 @@ public class ExportSelection {
             if (item.contains("name")) {
                 title.add("Name");
             }
-            if (item.contains("matrix")) {
-                title.add("Matrix");
+            if (item.contains("matrixid")) {
+                title.add("MatrixID");
             }
             if (item.contains("course")) {
                 title.add("Course");
@@ -104,7 +104,7 @@ public class ExportSelection {
                         details[count] = l.getUsage().get().getStudent().getName().getName();
                         count += 1;
                     }
-                    if (title.contains("Matrix")) {
+                    if (title.contains("MatrixID")) {
                         details[count] = l.getUsage().get().getStudent().getMatricNumber().getMatricId();
                         count += 1;
                     }
