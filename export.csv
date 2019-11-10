@@ -1,5 +1,6 @@
-Locker,Zone,Status,Name,Matrix,Start-Date,End-Date
-1234,A,in-use,JohnDoe,A1111111B,22-10-2019,30-12-2019
-123,A,in-use,JohnDoe,A1111111B,22-10-2019,30-11-2019
-1,A,not-in-use,,,,
-2,A,not-in-use,,,,
+Locker,Status,End-Date
+1234,in-use,30-12-2019
+123,in-use,30-11-2019
+1,not-in-use,
+2,not-in-use,
+222,not-in-use,
