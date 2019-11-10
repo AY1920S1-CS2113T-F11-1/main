@@ -18,6 +18,9 @@ public class ExportLockerSelectCommandParser {
         if (args.trim().length() == 0) {
             throw new DukeException(ExportLockerSelectCommand.INVALID_FORMAT);
         }
+        if (!args.contains("locker")) {
+            throw new DukeException(ExportLockerSelectCommand.MISSING_FORMAT);
+        }
         return new ExportLockerSelectCommand(args);
     }
 }

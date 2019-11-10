@@ -81,9 +81,6 @@ public class ExportSelection {
                 String zoneStats = "not-in-use";
                 String[] details = new String[header.length];
 
-                if (!title.contains("Locker")) {
-                    throw new DukeException("Serial Number is Mandatory, please input 'Locker'!");
-                }
                 if (title.contains("Locker")) {
                     details[count] = l.getSerialNumber().getSerialNumberForLocker();
                     count += 1;
@@ -136,6 +133,8 @@ public class ExportSelection {
 
         } catch (IOException e) {
             throw new DukeException(" Unable to export selected tags to csv file ");
+        } catch (Exception e) {
+            throw new DukeException(" Serial Number is Mandatory, please input 'Locker'! ");
         }
     }
 

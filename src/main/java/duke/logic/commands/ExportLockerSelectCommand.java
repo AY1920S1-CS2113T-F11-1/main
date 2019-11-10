@@ -12,6 +12,7 @@ public class ExportLockerSelectCommand extends Command {
     public static final String INVALID_FORMAT = " Invalid command format for exporting selection of csv file. "
             + "You must key in 'exports' with tags such as 'Locker,Name,Zone' etc.";
     public static final String COMMAND_WORD = "exports";
+    public static final String MISSING_FORMAT = "Serial Number is Mandatory, please input 'Locker'!";
 
 
     public ExportLockerSelectCommand(String arg) {
