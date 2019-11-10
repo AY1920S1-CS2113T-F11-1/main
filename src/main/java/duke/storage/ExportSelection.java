@@ -26,28 +26,30 @@ public class ExportSelection {
 
             ArrayList<String> title = new ArrayList<String>();
 
-            if (item.contains("Locker")) {
+            item = item.toLowerCase();
+
+            if (item.contains("locker")) {
                 title.add("Locker");
             }
-            if (item.contains("Address")) {
+            if (item.contains("address")) {
                 title.add("Address");
             }
-            if (item.contains("Zone")) {
+            if (item.contains("zone")) {
                 title.add("Zone");
             }
-            if (item.contains("Status")) {
+            if (item.contains("status")) {
                 title.add("Status");
             }
-            if (item.contains("Name")) {
+            if (item.contains("name")) {
                 title.add("Name");
             }
-            if (item.contains("Matrix")) {
+            if (item.contains("matrix")) {
                 title.add("Matrix");
             }
-            if (item.contains("Course")) {
+            if (item.contains("course")) {
                 title.add("Course");
             }
-            if (item.contains("Email")) {
+            if (item.contains("email")) {
                 title.add("Email");
             }
 
