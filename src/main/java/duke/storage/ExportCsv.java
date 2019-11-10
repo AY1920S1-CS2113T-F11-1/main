@@ -39,7 +39,9 @@ public class ExportCsv {
                     CSVWriter.DEFAULT_ESCAPE_CHARACTER,
                     CSVWriter.DEFAULT_LINE_END);
 
-            String[] header = {"Locker", "Address", "Zone", "Status", "Name", "Matrix-Number", "Course", "Email", "Start-Date","End-Date" };
+            String[] header = {"Locker", "Address", "Zone", "Status",
+                "Name", "Matrix-Number", "Course", "Email",
+                "Start-Date","End-Date" };
 
             csvWriter.writeNext(header);
 
