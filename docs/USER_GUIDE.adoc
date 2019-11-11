@@ -98,14 +98,31 @@ It displays the details for lockers +
 Format : `stats`
 
 === Export as CSV file
-Exports a list of lockers as CSV file. +
+
+- This feature Exports a list of lockers as CSV file.
+- User can choose to export all details automatically, or selected details to be exported.
+- The output csv file is  `export.csv`
+
+==== Export all details into a CSV file
+Format: `export`
+
+==== Export selected details into a CSV file
+Format: `exports` + detail name. (separated by whitespaces). Commas and other separation symbols will not be accepted.
 
 [NOTE]
 only the valid tokens will be considered, if the user enters `exports Locker 'some_gibberish'`, it will export only locker details.
 
-Format: `export`
-Format: `exports` + detail name. +
-example: `exports lockers status names`
+[NOTE]
+It is mandatory to input `locker` as it shows locker serial number. +
+- Locker info: `locker` `zone` `address` `status`
+
+[NOTE]
+It is mandatory to input `status` if user want to input any student info or date info. +
+- Student info: `student` `matrixid` `course` `id` +
+- Date info: `startdate` `enddate`
+
+example: `exports lockers status names` +
+example: `exports locker name zone status` +
 
 === Finding and Searching for Lockers: `find`
 
