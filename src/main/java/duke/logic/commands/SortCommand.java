@@ -38,6 +38,12 @@ public class SortCommand extends Command {
 
         requireNonNull(lockerList);
 
+        if (lockerList.getLockerList().size() == 0) {
+
+            throw new DukeException("There are NO lockers to be sorted.");
+
+        }
+
         if (checkAscOrDes == 1) {
 
             if (this.sortBy.equals("serialNumber")) {
