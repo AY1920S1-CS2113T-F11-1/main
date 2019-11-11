@@ -99,6 +99,10 @@ Format : `stats`
 
 === Export as CSV file
 Exports a list of lockers as CSV file. +
+
+[NOTE]
+only the valid tokens will be considered, if the user enters `exports Locker 'some_gibberish'`, it will export only locker details.
+
 Format: `export`
 Format: `exports` + detail name. +
 example: `exports lockers status names`
