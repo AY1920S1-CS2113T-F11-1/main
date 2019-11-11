@@ -44,6 +44,6 @@ public class StorageManager implements Storage {
     @Override
     public void exportSelection(LockerList lockerList, String input) throws DukeException {
         requireNonNull(lockerList);
-        selectionCsv.exportSelect(lockerList.getAllLockers(),input);
+        selectionCsv.exportSelect(lockerList.getLockerList(),input);
     }
 }

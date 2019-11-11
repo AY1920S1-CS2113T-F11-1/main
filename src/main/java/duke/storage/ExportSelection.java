@@ -105,7 +105,7 @@ public class ExportSelection {
                         count += 1;
                     }
                     if (title.contains("MatrixID")) {
-                        details[count] = l.getUsage().get().getStudent().getMatricNumber().getMatricId();
+                        details[count] = l.getUsage().get().getStudent().getStudentId().getStudentId();
                         count += 1;
                     }
                     if (title.contains("Course")) {
