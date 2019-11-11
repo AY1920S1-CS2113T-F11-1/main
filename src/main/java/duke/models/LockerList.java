@@ -32,6 +32,10 @@ public class LockerList {
         this.lockerList = lockerList;
     }
 
+    public LockerList(LockerList copyLockerList) {
+        this.lockerList = new ArrayList<>(copyLockerList.getLockerList());
+    }
+
     public LockerList() {
         lockerList = new ArrayList<>();
     }
@@ -161,6 +165,10 @@ public class LockerList {
         return lockerList.get(index);
     }
 
+    public List<Locker> getAllLockers() {
+        return lockerList;
+    }
+
     public int getIndexOfLocker(Locker locker) {
         requireNonNull(locker);
         return lockerList.indexOf(locker);
@@ -168,6 +176,15 @@ public class LockerList {
 
     public int numLockers() {
         return lockerList.size();
+    }
+
+    /**
+     * Updates the lockerlist to the newest version after undo/redo.
+     * @param updatedLockerList stores the updated version of lockerlist after undo/redo
+     */
+    public void updateLockerList(LockerList updatedLockerList) {
+        lockerList.clear();
+        lockerList.addAll(updatedLockerList.getAllLockers());
     }
 
     @JsonGetter("lockers")

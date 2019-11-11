@@ -17,6 +17,10 @@ import duke.logic.commands.ExportLockerCommand;
 import duke.logic.commands.ExportLockerSelectCommand;
 import duke.logic.commands.HelpCommand;
 import duke.logic.commands.ListCommand;
+import duke.logic.commands.SelectLockerCommand;
+import duke.logic.commands.UndoCommand;
+import duke.logic.commands.RedoCommand;
+import duke.logic.commands.HistoryCommand;
 import duke.logic.commands.ExportLockerCommand;
 import duke.logic.commands.ByeCommand;
 import duke.logic.commands.Command;
@@ -71,6 +75,14 @@ public class Parser {
             return new EditLockerCommandParser().parse(arguments);
         case EditUsageCommand.COMMAND_WORD:
             return new EditUsageParser().parse(arguments);
+        case SelectLockerCommand.COMMAND_WORD:
+            return new SelectLockerCommandParser().parse(arguments);
+        case UndoCommand.COMMAND_WORD:
+            return new UndoCommandParser().parse(fullCommand);
+        case RedoCommand.COMMAND_WORD:
+            return new RedoCommandParser().parse(fullCommand);
+        case HistoryCommand.COMMAND_WORD:
+            return new HistoryCommand();
         case ClearCommand.COMMAND_WORD:
             return new ClearCommand();
         case ListCommand.COMMAND_WORD:

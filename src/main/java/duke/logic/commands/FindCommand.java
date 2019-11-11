@@ -14,7 +14,9 @@ import duke.models.student.Name;
 import duke.models.tag.Tag;
 import duke.storage.Storage;
 import duke.ui.Ui;
-
+/**
+ * Command to find the required information.
+ */
 public class FindCommand extends Command {
     private final FindLocker findLocker;
     private final FindStudent findStudent;
