@@ -165,10 +165,6 @@ public class LockerList {
         return lockerList.get(index);
     }
 
-    public List<Locker> getAllLockers() {
-        return lockerList;
-    }
-
     public int getIndexOfLocker(Locker locker) {
         requireNonNull(locker);
         return lockerList.indexOf(locker);
@@ -184,7 +180,7 @@ public class LockerList {
      */
     public void updateLockerList(LockerList updatedLockerList) {
         lockerList.clear();
-        lockerList.addAll(updatedLockerList.getAllLockers());
+        lockerList.addAll(updatedLockerList.getLockerList());
     }
 
     @JsonGetter("lockers")
