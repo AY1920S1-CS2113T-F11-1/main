@@ -1,6 +1,7 @@
 package duke.parser;
 
 import duke.exceptions.DukeException;
+import duke.log.Log;
 import duke.logic.commands.FindCommand;
 import duke.logic.commands.AddLockerCommand;
 import duke.logic.commands.AddBatchCommand;
@@ -17,9 +18,14 @@ import duke.logic.commands.ExportLockerCommand;
 import duke.logic.commands.ExportLockerSelectCommand;
 import duke.logic.commands.HelpCommand;
 import duke.logic.commands.ListCommand;
-
+import duke.logic.commands.SelectLockerCommand;
+import duke.logic.commands.UndoCommand;
+import duke.logic.commands.RedoCommand;
+import duke.logic.commands.HistoryCommand;
 import duke.logic.commands.Command;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -39,6 +45,8 @@ public class Parser {
     private static final String INVALID_FORMAT = " The command entered has invalid format. "
             + "Type help to check all the commands available in SpongeBob";
     private static final String STATS_COMMAND = "stats";
+    private static final Logger logger = Log.getLogger();
+    private static final String PARSING = "Parsing ";
 
     /**
      * Parses the command entered by the user.
@@ -47,6 +55,7 @@ public class Parser {
      * @throws DukeException if the user inputs invalid command i.e in a an unexpected format
      */
     public Command parse(String fullCommand) throws DukeException {
+        logger.log(Level.INFO, PARSING + fullCommand);
         requireNonNull(fullCommand);
 
         Matcher commandMatch = GENERAL_COMMAND_FORMAT.matcher(fullCommand.trim());
@@ -70,6 +79,14 @@ public class Parser {
             return new EditLockerCommandParser().parse(arguments);
         case EditUsageCommand.COMMAND_WORD:
             return new EditUsageParser().parse(arguments);
+        case SelectLockerCommand.COMMAND_WORD:
+            return new SelectLockerCommandParser().parse(arguments);
+        case UndoCommand.COMMAND_WORD:
+            return new UndoCommandParser().parse(fullCommand);
+        case RedoCommand.COMMAND_WORD:
+            return new RedoCommandParser().parse(fullCommand);
+        case HistoryCommand.COMMAND_WORD:
+            return new HistoryCommand();
         case ClearCommand.COMMAND_WORD:
             return new ClearCommand();
         case ListCommand.COMMAND_WORD:

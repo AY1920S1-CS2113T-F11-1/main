@@ -10,19 +10,22 @@ import java.util.Collections;
 
 import static java.util.Objects.requireNonNull;
 
+/**
+ * Command to sort the lockers in the list of lockers.
+ */
 public class SortCommand extends Command {
     private final String sortBy;
     private final int checkAscOrDes;
 
     public static final String COMMAND_WORD = "sortby";
     public static final String INVALID_FORMAT =  " Invalid command format for sort command."
-            + "\n     1. Only one of the token should be present (asc/ or dsc/)"
+            + "\n     1. Only one of the token should be present (asc/ or des/)"
             + "\n     2. Keywords to use are, 'serialnumber', 'address', 'zone', 'tags'. ";
 
     /**
      * This constructor instantiates the SortCommand object.
-     * @param sortBy stores the attribute of the locker to be sorted by.
-     * @param checkAscOrDes stores a flag to indicate if the command is ascending or descending.
+     * @param sortBy stores the attribute of the locker to be sorted by
+     * @param checkAscOrDes stores a flag to indicate if the command is ascending or descending
      */
 
     public SortCommand(String sortBy, int checkAscOrDes) {
@@ -34,6 +37,12 @@ public class SortCommand extends Command {
     public void execute(LockerList lockerList, Ui ui, Storage storage) throws DukeException {
 
         requireNonNull(lockerList);
+
+        if (lockerList.getLockerList().size() == 0) {
+
+            throw new DukeException("There are NO lockers to be sorted.");
+
+        }
 
         if (checkAscOrDes == 1) {
 
@@ -69,6 +78,7 @@ public class SortCommand extends Command {
             }
 
         }
-
+        storage.saveData(lockerList);
+        storage.updateStateList(lockerList);
     }
 }

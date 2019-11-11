@@ -16,7 +16,7 @@ endif::[]
 :repoURL: https://github.com/AY1920S1-CS2113T-F11-1/main
 
 By: `Team F11-1` +
-Updated As: `31/10/2019`
+Updated As: `11/11/2019`
 
 == https://github.com/AY1920S1-CS2113T-F11-1/main/blob/master/docs/README.adoc[Introduction]
 
@@ -55,27 +55,26 @@ the second instance of `n/NAME2` is considered.
 * `z/` -> Zone for the locker
 * `u/` -> Size of the batch of lockers
 * `n/` -> Name of the student renting the locker
-* `i/` -> Student id
+* `i/` -> Matriculation ID of the student
 * `m/` -> Major/Course pursued by the student
-* `e/` -> Email id of the student
-* `f/` -> The starting date for rental of lockers
-* `t/` -> The ending date for rental of lockers
+* `e/` -> Email of the student
+* `f/` -> The starting date for rental of the locker
+* `t/` -> The ending date for rental of the locker
 * `p/` -> Preferences for locker subscription
-* `c/` -> Condition of the locker
+* `c/` -> Condition (tags) of the locker
 ====
 
-=== Viewing user manual
+=== Viewing User manual
 
-Displays all the commands,their syntax and usage.
+Displays all the the syntax and usage of commands and tokens.
 Format: `help`
 
-
-=== Listing all the lockers currently managed by SpongeBob
+=== Listing All the Lockers Currently Managed by SpongeBob
 
 Shows a list of lockers +
 Format: `list`
 
-=== Clearing all the lockers from the list of lockers
+=== Clearing All the Lockers from the List of Lockers
 
 Clears all entries from the specified list. +
 Format: `clear`
@@ -85,44 +84,93 @@ Examples:
 * `clear` +
 Clears all the entries from the members list.
 
-=== Exiting the program
+=== Exiting the Program
 
 Exits the program. +
 Format: `bye`
 
-=== Saving data
+=== Saving Data
 
 All the data is automatically saved as a JSON file.
 
-=== Export as csv
-This feature exports a list of lockers as csv. +
+=== Display Stats
+It displays the details for lockers +
+Format : `stats`
 
-1. Format: `export` +
+=== Export as CSV file
+Exports a list of lockers as CSV file. +
+Format: `export`
+Format: `exports` + detail name. +
+example: `exports lockers status names`
 
-2. Format: `exports` + details needed to export. (With whitespaces separating the details) +
+=== Finding and Searching for Lockers: `find`
 
-* Locker info: `locker` `zone` `address` `status`
-* Student info: `student` `matrixid` `course` `id`
-* Date info: `startdate` `enddate`
+Finds lockers based on their serial number, area, zone and tags +
+Format: `find s/SERIALNUMBER a/AREA z/zone c/tags`
 
-* It is mandatory to input `locker` as it shows locker serial number.
-* It is mandatory to input `status` if user want to input any student info or date info.
-* The command is non-case-sensitive. Both Upper and Lower cases will excepted.
-* Commas will not be excepted to separate details.
+Additionally you could find lockers based on a student's particulars. +
+Format: `find n/name i/studentid m/major e/email`
 
-* Examples:
 
-** `exports locker` will export the locker serial number.
-** `exports locker name zone status` will export the locker serial-number, zone, status and student-name.
-** `exports locker status enddate` will export the locker serial-number, status and expiry-date.
-** `exports zone` is invalid as `locker` is missing.
-** `exports locker name` is invalid as `status` is missing.
+****
+[NOTE]
+* The search is case insensitive. e.g `computer` will match `Computer`
+* SERIAL NUMBER will only accept numeric characters such as `s/12345`
+* AREA will only accept alphanumeric characters such as `a/COM1`
+* ZONE will only accept alphanumeric characters such as `z/A1`
+* Tags can only accept these 4 keywords (adhere to the exact spelling)
+which are `c/in-use`, `c/not-in-use`, `c/unauthorized`, `c/broken`.
+****
 
-=== Pulling stats of locker management system.
-This feature displays the stats for current lockers. +
+Examples:
 
-Format: `stats`
+* find `s/1234` +
+* find `a/COM2 z/B2` +
+* find `c/in-use` +
+* find `n/Kevin` +
 
+When searching for multiple tokens such as `find a/COM2 z/B2`,
+Spongebob will look for all lockers that have matching keywords for either tokens.
+
+Returns a list of lockers(s) that contains those parameters/keywords.
+
+=== Sorting the List of Lockers: `sortby`
+
+Sort the list of lockers either in ascending or descending order
+based on the attributes of lockers serial number, area, zone and tags +
+Format: `find asc/[attribute]` OR `find des/[attribute]`
+
+****
+[NOTE]
+* The search is case insensitive. e.g `serialNumber` will match `serialnumber`
+* The feature only allows for 4 keyword attributes:
+`serialNumber`, `address`, `zone` and `tags`.
+* Always use the token `asc/` for ascending order and `des/` descending order.
+****
+
+Examples:
+
+* sortby `asc/serialNumber` +
+* sortby `des/tags` +
+* sortby `asc/zone` +
+* sortby `des/address` +
+
+Returns a sorted list of lockers(s) based on the user's parameters.
+
+=== Viewing Reminders List: `reminders`
+
+View the reminders list based on the status of lockers that require immediate action.
+These lockers that require immediate action are lockers that are `expiring within 7 days`,
+as well as locker with `unauthorised` and `broken` statuses. +
+Format: `reminders`
+
+
+[NOTE]
+Reminders will provide 3 lists of lockers: `expiring within 7 days`, `unauthorised` and `broken`
+if there are any.
+If there are none, there will be no lists shown.
+
+Returns a list of lockers(s) that are `expiring within 7 days`, `unauthorised` and `broken`
 
 //tag::addLocker[]
 === Adding Lockers
@@ -145,42 +193,7 @@ same serial number. A serial number should be a non-negative integer with not mo
 Examples:
 
 * `addLocker s/123 a/Com1 Level2 z/A`
-
-
-==== Finding and searching for lockers: `find`
-
-Finds lockers based on their serial number, area, zone and tags +
-Format: `find s/SERIALNUMBER a/AREA z/zone c/tags`
-
-Additionally you could find lockers based on a student's particulars. +
-Format: `find n/name i/studentid m/major e/email`
-
-
-****
-* The search is case insensitive. e.g `computer` will match `Computer`
-* SERIAL NUMBER will only accept numeric characters such as s/12345
-* AREA will only accept alphanumeric characters such as a/COM1
-* ZONE will only accept alphanumeric characters such as z/A1
-* Tags can accept characters such as c/in-use
-****
-
-Examples:
-
-* `find s/1234` +
-* `find a/COM2 z/B2` +
-* `find c/in-use` +
-* `find n/Kevin` +
-
-Returns a list of lockers(s) that contains those parameters.
-
-
-==== Finding and searching for lockers: `find`
-
-Finds lockers based on their serial number, area and zone +
-Format: `find s/SERIALNUMBER a/AREA z/zone`
-
-=======
-
+will add a locker with serial number 123.
 
 ==== Adding a batch of lockers : `addBatch`
 Adds a batch of unique lockers with serial numbers starting from `STARTINGSERIALNUMBER`. +
@@ -191,8 +204,8 @@ The `SIZE` must be a positive integer less than or equal to 30.
 
 Examples:
 
-* `addBatch s/123 u/20 a/Com1 z/A` will add 20 lockers from
-serial number 123-142.
+* `addBatch s/123 u/20 a/Com1 z/A`
+will add 20 lockers from serial number 123-142.
 //end::addLocker[]
 
 //tag::assignLocker[]
@@ -209,7 +222,7 @@ Format: `assign n/NAME e/EMAIL i/ID m/MAJOR f/STARTDATE t/ENDDATE p/PREFERENCES`
 * If SpongeBob is unable to find any free lockers in the list of preferences
 * then it will try to find free lockers in any zone and assign it to the student.
 * If there are no free lockers in the entire list then the student wont be
-  assigned any locker.
+assigned any locker.
 ****
 
 Examples:
@@ -222,7 +235,7 @@ is an invalid entry as there are no valid zones entered under preferences
 //end::assignLocker[]
 
 //tag::editLocker[]
-=== Editing locker details:
+=== Editing Locker Details:
 Edits the various details associated with the locker  +
 Format: `editLocker SERIALNUMBER [s/SERIALNUMBER] [a/AREA] [z/ZONE] [c/CONDITION]`
 
@@ -233,7 +246,8 @@ Format: `editLocker SERIALNUMBER [s/SERIALNUMBER] [a/AREA] [z/ZONE] [c/CONDITION
 * At least one of the fields must be provided.
 * Lockers with condition/tag `unauthorized` and `not-in-use` cannot be edited to `in-use` and vice-versa.
 * Lockers with condition/tag `in-use` can only be edited to condition/tag `broken`.
-* If a locker is edited from `CONDITION` `in-use` to `broken` , SpongeBob will try to re-allocate a free locker to the student who was using the locker.
+* If a locker is edited from `CONDITION` `in-use` to `broken` , SpongeBob will try to re allocate
+a free locker to the student who was using the locker.
 ****
 
 Examples:
@@ -248,7 +262,7 @@ other than `in-use`
 //end::editLocker[]
 
 //tag::editUsage[]
-=== Editing usage and rental related details for an `in-use` locker
+=== Editing Usage and Rental Related Details for an `in-use` Locker
 Format: `editUsage SERIALNUMBER [n/NAME] [e/EMAIL] [i/ID] [m/MAJOR] [f/STARTDATE] [t/ENDDATE]`
 
 ****
@@ -290,9 +304,26 @@ Example: +
 `deleteUsage 1234` +
 will delete the rental information.
 
-=== Finding and searching for lockers: `find`
+//end::deleteUsage[]
 
+//tag::selectLocker[]
+=== Selecting a Locker and Prints Associated Information: `selectLocker`
+Selects the locker associated with the given serial number and display the information associated to it +
+Format: `selectLocker SERIALNUMBER` +
 
+* The locker associated with the `SERIALNUMBER` must be present in the list of lockers stored in SpongeBob
+* If the tag/condition of the locker is `in-use`, information of the student assigned to the selected locker will be displayed together with the information of that locker
+* Or else only information of the selected locker will be displayed
+
+Example: +
+
+* `selectLocker 1234` +
+returns a table with the information of the selected locker and the information of the student assigned to it (if any).
+
+//end::selectLocker[]
+
+//tag::find[]
+=== Finding and Searching for Lockers: `find`
 Finds lockers based on their serial number, area and zone +
 Format: `find s/SERIALNUMBER a/AREA z/zone`
 
@@ -307,9 +338,46 @@ Examples:
 
 * `find s/123 a/COM1 z/A` +
 * `find s/987 a/COM2 z/B` +
-Returns a list of lockers(s) that contains those parameters.
+returns a list of lockers(s) that contains those parameters.
 
-//end::findLockers[]
+//end::find[]
+
+//tag::undo/redo[]
+=== Undo/Redo the Locker List into Previous States: `Undo`/`Redo`
+Change the current state of the locker list into another state +
+Format: `undo` OR `redo`
+
+****
+* If there are no changes to the current state of locker list, undo operation will not be allowed
+* If there are no undo operations, redo operations will not be allowed
+* Maximum of 10 consecutive undo/redo operations are allowed
+
+****
+
+Examples:
+
+* `undo` +
+returns the locker list to its previous state.
+* `redo` +
+returns the locker list to its state before the `undo` command.
+//end::undo/redo[]
+
+//tag::history[]
+=== View the History of Commands: `history`
+Prints the list of command history stored +
+Format: `history`
+
+****
+* `history` itself will not be stored inside the list of command history
+* The latest command entered has the highest number
+
+****
+
+Examples:
+
+* `history` +
+displays the list of command history.
+//end::history[]
 
 //tag::version2.0[]
 == Features coming up in version 2.0 `[coming in v2.0]`
@@ -320,7 +388,7 @@ This feature enables the user to send email templates to remind students their l
 
 For example: +
 `sendemail template1 e/EMAIL` +
-This command will send the template1 stored in an easily editable file to the email-id and send it via outlook.
+this command will send the template1 stored in an easily editable file to the email-id and send it via outlook.
 
 //end::emailtemplates[]
 
@@ -331,10 +399,11 @@ the user does not have to key in the `assign` commmand.
 
 For example: +
 `import FILEPATH` +
-This command will import the csv file whose path is specified by `FILEPATH`
+this command will import the csv file whose path is specified by `FILEPATH`
 //end::importLockers[]
 
 //end::version2.0[]
+
 
 == FAQ
 
@@ -354,9 +423,8 @@ This command will import the csv file whose path is specified by `FILEPATH`
 * *editLocker*: `editLocker SERIALNUMBER [s/] [a/] [z/] [c/]`
 * *editUsage* : `editUsage SERIALNUMBER [n/] [i/] [e/] [f/] [t/] [m/]`
 * *clear*: `clear`
-* *export*: `export`
-* *exports*: `exports 'detail-name'`
 * *stats*: `stats`
+* *export*: `export`
+* *exports*: `exports 'detail name'`
 * *bye*: `bye`
 // end::summary[]
-
