@@ -25,14 +25,14 @@ public class AssignLockerCommand extends Command {
     private static final int FIRST_FREE_LOCKER = 0;
     public static final String COMMAND_WORD = "assign";
     public static final String INVALID_FORMAT =  " Invalid command format for assigning lockers."
-            + "\n     1. All tokens should be present (n/ i/ m/ e/ f/ t/ p/)"
-            + "\n     2.There should not include any text between the command word and the first token";
+            + "\n     1. All tokens should be present. (n/ i/ m/ e/ f/ t/ p/) "
+            + "\n     2. There should not include any text between the command word and the first token.";
     private static final String NO_AVAILABLE_LOCKERS = " There are no available lockers at the moment.";
 
     /**
-     * Instantiates all the fields necessary for assigning a locker to a student.
-     * @param usage stores all the information required for locker subscription
-     * @param preferences  stores the preferences as a list of zones for the student
+     * This function instantiates all the fields necessary for assigning a locker to a student.
+     * @param usage stores all the information required for locker subscription.
+     * @param preferences  stores the preferences as a list of zones for the student.
      */
     public AssignLockerCommand(Usage usage, List<Zone> preferences) {
         requireNonNull(usage);
@@ -46,6 +46,7 @@ public class AssignLockerCommand extends Command {
         int storeIndex = assignLockerToStudent(lockerList, ui);
         ui.printSuccessfulAllocation(lockerList.getLocker(storeIndex).toString());
         storage.saveData(lockerList);
+        storage.updateStateList(lockerList);
     }
 
     private int assignLockerToStudent(LockerList lockerList, Ui ui) throws DukeException {

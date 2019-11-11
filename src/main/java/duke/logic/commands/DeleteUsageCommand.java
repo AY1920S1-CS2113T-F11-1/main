@@ -18,12 +18,12 @@ public class DeleteUsageCommand extends Command {
     private final SerialNumber serialNumberToDeleteUsage;
     public static final String COMMAND_WORD = "deleteusage";
     public static final String INVALID_FORMAT = " Invalid command format for deleting usage. "
-            + "You must key in the serial number of the locker";
+            + "You must key in the serial number of the locker.";
     private static final String USAGE_CONSTRAINT = " Usage of only an in-use locker can be deleted.";
 
     /**
-     * Creates a DeleteUsageCommand to delete the subscription details of the locker associated
-     * with the {@code SerialNumber} .
+     * CThis function creates a DeleteUsageCommand to delete the subscription details of the locker associated
+     * with the {@code SerialNumber}.
      */
     public DeleteUsageCommand(SerialNumber serialNumber) {
         requireNonNull(serialNumber);
@@ -41,5 +41,6 @@ public class DeleteUsageCommand extends Command {
                 lockerList.getIndexOfLocker(lockerToDelete));
         ui.showDeleteUsage();
         storage.saveData(lockerList);
+        storage.updateStateList(lockerList);
     }
 }

@@ -16,8 +16,8 @@ public class SortCommand extends Command {
 
     public static final String COMMAND_WORD = "sortby";
     public static final String INVALID_FORMAT =  " Invalid command format for sort command."
-            + "\n     1. Only one of the token should be present (asc/ or dsc/)"
-            + "\n     2. Keywords to use are, 'serialnumber', 'address', 'zone', 'tags'. ";
+            + "\n     1. Only one of the token should be present. (asc/ or dsc/) "
+            + "\n     2. Keywords to use are, 'serialnumber', 'address', 'zone', 'tags'.";
 
     /**
      * This constructor instantiates the SortCommand object.

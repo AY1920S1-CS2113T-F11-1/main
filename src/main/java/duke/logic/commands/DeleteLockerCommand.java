@@ -17,10 +17,10 @@ public class DeleteLockerCommand extends Command {
     private final SerialNumber serialNumberToDelete;
     public static final String COMMAND_WORD = "deletelocker";
     public static final String INVALID_FORMAT = " Invalid command format for deleting lockers."
-            + "\n     1. Should enter only deleteLocker <SERIALNUMBER> ";
+            + "\n     1. Should enter only deleteLocker <SERIALNUMBER>.";
 
     /**
-     * Creates a DeleteLockerCommand to delete the locker associated with the {@code SerialNumber} .
+     * This function creates a DeleteLockerCommand to delete the locker associated with the {@code SerialNumber} .
      */
     public DeleteLockerCommand(SerialNumber serialNumber) {
         requireNonNull(serialNumber);
@@ -29,10 +29,10 @@ public class DeleteLockerCommand extends Command {
 
     @Override
     public void execute(LockerList lockerList, Ui ui, Storage storage) throws DukeException {
-
         Locker lockerToDelete = lockerList.getLockerToEdit(serialNumberToDelete);
         lockerList.deleteLocker(lockerToDelete);
         ui.deleteMessage(lockerList.numLockers(), lockerToDelete.toString());
         storage.saveData(lockerList);
+        storage.updateStateList(lockerList);
     }
 }

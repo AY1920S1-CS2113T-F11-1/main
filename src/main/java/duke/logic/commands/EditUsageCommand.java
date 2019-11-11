@@ -32,13 +32,13 @@ public class EditUsageCommand extends Command {
             + "\n     1. The serial number of the locker whose usage is to be updated must be entered."
             + "\n     2. At least one field must be provided while updating usage.";
     private static final String EDIT_USAGE_CONSTRAINT = " You are allowed to edit usage of "
-            + "only type In-Use Locker";
+            + "only type In-Use Locker.";
 
     /**
-     * Instantiates the edit usage command.
-     * @param serialNumber stores the serial number of the locker to edit
-     * @param editStudent stores the details of the student to be edited
-     * @param editDate stores the details of the dates to be edited for usage
+     * This function instantiates the edit usage command.
+     * @param serialNumber stores the serial number of the locker to edit.
+     * @param editStudent stores the details of the student to be edited.
+     * @param editDate stores the details of the dates to be edited for usage.
      */
     public EditUsageCommand(SerialNumber serialNumber,EditStudent editStudent,
                             EditLockerDate editDate) {
@@ -55,6 +55,7 @@ public class EditUsageCommand extends Command {
         Locker editedLocker = editUsageDetails(lockerList);
         ui.showSuccessfullyEdited(editedLocker.toString());
         storage.saveData(lockerList);
+        storage.updateStateList(lockerList);
     }
 
     private Locker editUsageDetails(LockerList lockerList) throws DukeException {
@@ -85,7 +86,7 @@ public class EditUsageCommand extends Command {
     }
 
     /**
-     * Creates and returns a {@code Student} with the details of {@code usageToEdit}
+     * This function creates and returns a {@code Student} with the details of {@code usageToEdit}
      * edited with {@code editStudent}.
      */
     private Student createEditedStudent(Usage usageToEdit, EditStudent editStudent) {
@@ -103,7 +104,7 @@ public class EditUsageCommand extends Command {
     }
 
     /**
-     * Creates and returns a {@code LockerDate} with the details of {@code usageToEdit}
+     * This function creates and returns a {@code LockerDate} with the details of {@code usageToEdit}
      * edited with {@code editLockerDate}.
      */
     private LockerDate createEditedStartDate(Usage usageToEdit, EditLockerDate editDate) throws DukeException {
@@ -119,7 +120,7 @@ public class EditUsageCommand extends Command {
     }
 
     /**
-     * Stores the details to edit the student with. Each non-empty field value will replace the
+     * This function stores the details to edit the student with. Each non-empty field value will replace the
      * corresponding field value of the student.
      */
     public static class EditStudent {
@@ -134,7 +135,7 @@ public class EditUsageCommand extends Command {
 
         /**
          * A copy constructor used for editing student details.
-         * @param copyStudent stores the fields that are to be edited
+         * @param copyStudent stores the fields that are to be edited.
          */
         public EditStudent(EditStudent copyStudent) {
             setName(copyStudent.name);
@@ -160,7 +161,7 @@ public class EditUsageCommand extends Command {
         }
 
         /**
-         * Returns true if at least one field is updated.
+         * This function returns true if at least one field is updated.
          */
         public boolean checkAnyFieldUpdated() {
             return name != null || email != null || major != null
@@ -185,7 +186,7 @@ public class EditUsageCommand extends Command {
     }
 
     /**
-     * Stores the details to edit the rental period with. Each non-empty field value will replace the
+     * This function stores the details to edit the rental period with. Each non-empty field value will replace the
      * corresponding field value of the rental period.
      */
     public static class EditLockerDate {
@@ -198,7 +199,7 @@ public class EditUsageCommand extends Command {
 
         /**
          * A copy constructor to store the details of the edited usage.
-         * @param copyEditDate stores the details that are to be edited
+         * @param copyEditDate stores the details that are to be edited.
          */
         public EditLockerDate(EditLockerDate copyEditDate) {
             setStartDate(copyEditDate.startDate);
@@ -206,7 +207,7 @@ public class EditUsageCommand extends Command {
         }
 
         /**
-         * Returns true if at least one field is updated.
+         * This function returns true if at least one field is updated.
          */
         public boolean checkAnyFieldUpdated() {
             return startDate != null || endDate != null;

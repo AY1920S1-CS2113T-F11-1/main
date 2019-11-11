@@ -10,7 +10,7 @@ import java.util.Objects;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Stores all the information required for the subscription of a locker.
+ * This class stores all the information required for the subscription of a locker.
  */
 public class Usage {
     private final Student student;
@@ -18,10 +18,10 @@ public class Usage {
     private final LockerDate endDate;
 
     /**
-     * Instantiates the subscription details for the locker.
-     * @param student stores the details associated with students
-     * @param startDate stores the starting date of the locker subscription
-     * @param endDate stores the ending date of the locker subscription
+     * This function instantiates the subscription details for the locker.
+     * @param student stores the details associated with students.
+     * @param startDate stores the starting date of the locker subscription.
+     * @param endDate stores the ending date of the locker subscription.
      */
     @JsonCreator
     public Usage(@JsonProperty("student") Student student,

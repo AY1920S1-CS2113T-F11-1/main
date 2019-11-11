@@ -8,21 +8,21 @@ import duke.exceptions.DukeException;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Stores the major/course pursued by the student renting a locker.
+ * This class stores the major/course pursued by the student renting a locker.
  */
 public class Major {
 
     public static final String ERROR_MESSAGE = " Major should contain only alphanumeric characters"
-            + " and spaces and it should not be empty";
+            + " and spaces and it should not be empty.";
 
     private static final String CHECK_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
 
     private final String course;
 
     /**
-     * Instantiates the course/major of the student.
-     * @param course stores the course that the student is currently pursuing
-     * @throws DukeException when the course is in invalid format
+     * This function instantiates the course/major of the student.
+     * @param course stores the course that the student is currently pursuing.
+     * @throws DukeException when the course is in invalid format.
      */
     @JsonCreator
     public Major(@JsonProperty("major") String course) throws DukeException {
@@ -34,10 +34,10 @@ public class Major {
     }
 
     /**
-     * Checks if the course pursued by the student is valid or not.
-     * A valid course contains only alpha numeric characters
-     * @param course stores the course tested for its validity
-     * @return true if the course is valid
+     * This function checks if the course pursued by the student is valid or not.
+     * A valid course contains only alpha numeric characters.
+     * @param course stores the course tested for its validity.
+     * @return true if the course is valid.
      */
     public static boolean checkIsValidCourse(String course) {
         return course.matches(CHECK_REGEX);

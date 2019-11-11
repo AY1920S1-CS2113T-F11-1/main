@@ -23,7 +23,7 @@ public class AddBatchCommand extends Command {
             + "\n     2. There should not include any text between the command word and the first token.";
 
     /**
-     * Creates an AddBatchCommand to add {@code List<Locker>}.
+     * This function creates an AddBatchCommand to add {@code List<Locker>}.
      */
     public AddBatchCommand(List<Locker> batchOfLockers) {
         requireNonNull(batchOfLockers);
@@ -40,5 +40,6 @@ public class AddBatchCommand extends Command {
         lockerList.addAllLockersInList(batchOfLockers);
         ui.printBatch(batchOfLockers.size());
         storage.saveData(lockerList);
+        storage.updateStateList(lockerList);
     }
 }

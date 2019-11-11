@@ -8,25 +8,25 @@ import duke.exceptions.DukeException;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Stores the student id of the student renting a locker.
+ * This class stores the student id of the student renting a locker.
  */
 public class StudentId {
 
     public static final String ERROR_MESSAGE = " Matriculation number should contain only "
             + "alpha numeric characters and should have only 9 characters. "
             + "\n\n     It should satisfy the following constraints:"
-            + "\n      1. It should start with the character 'A'"
-            + "\n      2. It should end with a letter"
-            + "\n      3. It should contain only digits between the first and the last character";
+            + "\n      1. It should start with the character 'A'."
+            + "\n      2. It should end with a letter."
+            + "\n      3. It should contain only digits between the first and the last character.";
 
     private static final String CHECK_REGEX = "[Aa]\\d{7}[a-zA-Z]";
 
     private final String studentId;
 
     /**
-     * Instantiates the student ID  of the student.
-     * @param studentId stores the student ID of the student
-     * @throws DukeException if the student ID is in invalid format
+     * Thus function instantiates the student ID  of the student.
+     * @param studentId stores the student ID of the student.
+     * @throws DukeException if the student ID is in invalid format.
      */
     @JsonCreator
     public StudentId(@JsonProperty("id") String studentId) throws DukeException {

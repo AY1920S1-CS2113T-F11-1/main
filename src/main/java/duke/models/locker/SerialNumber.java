@@ -8,12 +8,12 @@ import duke.exceptions.DukeException;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Stores the serial number of the locker.
+ * This class stores the serial number of the locker.
  */
 public class SerialNumber {
 
     public static final String ERROR_MESSAGE = " Serial number can only be a non-negative integer with no more"
-            + "than six digits and it cannot be empty";
+            + "than six digits and it cannot be empty.";
     private static final int CHECK_SIX_DIGITS = 6;
 
     public static final String CHECK_REGEX = "[0-9]+";
@@ -22,9 +22,9 @@ public class SerialNumber {
     public final String serialNumberForLocker;
 
     /**
-     * Instantiates the class with the serial number passed to it.
-     * @param serialNumber stores the serial number assigned to a locker
-     * @throws DukeException when the serial number is in invalid format
+     * This function instantiates the class with the serial number passed to it.
+     * @param serialNumber stores the serial number assigned to a locker.
+     * @throws DukeException when the serial number is in invalid format.
      */
     @JsonCreator
     public SerialNumber(@JsonProperty("serialNumber") String serialNumber) throws DukeException {
@@ -36,9 +36,9 @@ public class SerialNumber {
     }
 
     /**
-     * Checks whether the {@code serialNumberForLocker} is valid or not.
-     * A valid serial number is a non-negative integer which has at most six digits
-     * @return true if the serial number is valid
+     * This function checks whether the {@code serialNumberForLocker} is valid or not.
+     * A valid serial number is a non-negative integer which has at most six digits.
+     * @return true if the serial number is valid.
      */
     public static boolean checkIsValidSerialNumber(String serialNumberForLocker) {
         return serialNumberForLocker.replaceFirst(REGEX_FOR_LEADING_ZEROES, "")

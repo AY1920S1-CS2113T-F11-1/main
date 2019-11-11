@@ -9,19 +9,19 @@ import duke.exceptions.DukeException;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Stores the address associated with a locker.
+ * This class stores the address associated with a locker.
  */
 public class Address {
     public static final String ERROR_MESSAGE = " Addresses can take any value,"
-            + "but it should not be empty";
+            + "but it should not be empty.";
 
     private static final String CHECK_REGEX = "[^\\s].*";
     private final String address;
 
     /**
-     * Instantiates the object with the address value passed to it.
-     * @param address stores the address
-     * @throws DukeException if the address is in a invalid format
+     * This function instantiates the object with the address value passed to it.
+     * @param address stores the address.
+     * @throws DukeException if the address is in a invalid format.
      */
     @JsonCreator
     public Address(@JsonProperty("address") String address) throws DukeException {

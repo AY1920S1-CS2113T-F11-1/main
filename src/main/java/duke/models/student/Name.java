@@ -8,7 +8,7 @@ import duke.exceptions.DukeException;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Stores the name of the student renting a locker.
+ * This class stores the name of the student renting a locker.
  */
 public class Name {
 
@@ -20,8 +20,8 @@ public class Name {
 
     /**
      * This constructor instantiates the name of the student.
-     * @param name stores the name of the student
-     * @throws DukeException when the name is in invalid format
+     * @param name stores the name of the student.
+     * @throws DukeException when the name is in invalid format.
      */
     @JsonCreator
     public Name(@JsonProperty("name") String name) throws DukeException {
@@ -33,9 +33,9 @@ public class Name {
     }
 
     /**
-     * Checks if the name is invalid i.e whether it contains only alpha numeric characters.
-     * @param name stores the name that is to be tested for its validity
-     * @return true if the name is valid
+     * This function checks if the name is invalid i.e whether it contains only alpha numeric characters.
+     * @param name stores the name that is to be tested for its validity.
+     * @return true if the name is valid.
      */
     public static boolean checkIsValidName(String name) {
         return name.matches(CHECK_REGEX);

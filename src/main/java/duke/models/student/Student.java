@@ -9,7 +9,7 @@ import java.util.Objects;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Stores all the information pertaining to a student renting a locker.
+ * This class stores all the information pertaining to a student renting a locker.
  */
 public class Student {
     private final Name name;
@@ -18,11 +18,11 @@ public class Student {
     private final Major major;
 
     /**
-     * Instantiates the student and all its properties.
-     * @param name stores the name of the student
-     * @param studentId stores the student ID of the student
-     * @param email stores the email id of the student
-     * @param major stores the major/course of the student
+     * This function instantiates the student and all its properties.
+     * @param name stores the name of the student.
+     * @param studentId stores the student ID of the student.
+     * @param email stores the email id of the student.
+     * @param major stores the major/course of the student.
      */
     @JsonCreator
     public Student(@JsonProperty("studentName") Name name,

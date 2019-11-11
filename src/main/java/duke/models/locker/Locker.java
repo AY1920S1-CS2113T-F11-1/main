@@ -19,7 +19,7 @@ import static java.time.temporal.ChronoUnit.DAYS;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Stores all the information pertaining to a locker.
+ * This class stores all the information pertaining to a locker.
  */
 public class Locker {
     private final SerialNumber serialNumber;
@@ -29,7 +29,7 @@ public class Locker {
     private Usage usage;
 
     /**
-     * Stores all the information regarding the status of the locker.
+     * This function stores all the information regarding the status of the locker.
      * @param serialNumber stores the serial numbers associated with each locker
      * @param address      stores the location of the locker
      * @param zone         stores the zone to which the locker belongs

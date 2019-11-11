@@ -18,7 +18,7 @@ public class ExportLockerSelectCommand extends Command {
             + "You must key in tags with spaces in between. "
             + "Example: 'exports locker zone status name'";
 
-    public static final String MISSINGSTATUS_FORMAT = "Unable to pull student info without 'Status' input";
+    public static final String MISSINGSTATUS_FORMAT = "Unable to pull student info without 'Status' input.";
 
 
     public ExportLockerSelectCommand(String arg) {

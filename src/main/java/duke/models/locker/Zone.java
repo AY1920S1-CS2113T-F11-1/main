@@ -8,12 +8,12 @@ import duke.exceptions.DukeException;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Stores the zone associated with a locker.
+ * This class stores the zone associated with a locker.
  */
 public class Zone {
 
     public static final String ERROR_MESSAGE = " Zone should consist of only 1 letter "
-           + "and cannot be empty";
+           + "and cannot be empty.";
 
     private static final int SINGLE_LETTER = 1;
     private static final String CHECK_REGEX = "^[a-zA-Z]*$";
@@ -21,8 +21,8 @@ public class Zone {
 
     /**
      * This constructor is used to instantiate the class with the zone value passed to it.
-     * @param zone stores the zone assigned to a locker
-     * @throws DukeException when zone is in invalid format
+     * @param zone stores the zone assigned to a locker.
+     * @throws DukeException when zone is in invalid format.
      */
     @JsonCreator
     public Zone(@JsonProperty("Zone") String zone) throws DukeException {
@@ -34,10 +34,10 @@ public class Zone {
     }
 
     /**
-     * Checks if the zone is valid or not.
-     * A zone is valid if it contains only a single alphabet
-     * @param zone string to be tested for validity
-     * @return true if the zone is valid
+     * This function checks if the zone is valid or not.
+     * A zone is valid if it contains only a single alphabet.
+     * @param zone string to be tested for validity.
+     * @return true if the zone is valid.
      */
     public static boolean checkIsValidZone(String zone) {
         return zone.matches(CHECK_REGEX)

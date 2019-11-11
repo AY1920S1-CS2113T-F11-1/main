@@ -21,7 +21,7 @@ public class Duke {
     private static final String FILE_NAME_FOR_STORAGE = "data.json";
 
     /**
-     * Instantiates the SpongeBob class by loading data from a file.
+     * This function instantiates the SpongeBob class by loading data from a file.
      * @param filename stores the file name from which the data is being loaded.
      */
     public Duke(String filename) throws DukeException {
@@ -34,10 +34,11 @@ public class Duke {
             ui.showLoadingError(e.getMessage());
             lockers = SampleData.getSampleLockerList();
         }
+        storage.initializeStateList(lockers);
     }
 
     /**
-     *  Executes various tasks/commands related to SpongeBob.
+     *  This function executes various tasks/commands related to SpongeBob.
      */
     public void run() {
         ui.showWelcome();
@@ -46,6 +47,7 @@ public class Duke {
             try {
                 String fullCommand = ui.readCommand();
                 ui.printDash();
+                storage.updateHistoryList(fullCommand);
                 Command c = parser.parse(fullCommand);
                 c.execute(lockers, ui, storage);
                 isExit = c.isExit();

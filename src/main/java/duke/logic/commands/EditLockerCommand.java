@@ -33,15 +33,15 @@ public class EditLockerCommand extends Command {
     private static final String EDIT_LOCKER_ERROR = " The following constraints are to be satisfied"
             + " for editing locker states:"
             + "\n     1. If a locker is currently not in the InUse state then its state cannot"
-            + " be edited to InUse state"
-            + "\n     2. A locker currently in InUse state can only be changed to broken state"
+            + " be edited to InUse state."
+            + "\n     2. A locker currently in InUse state can only be changed to broken state."
             + "\n     3. If case you change InUse to Broken then a new locker is"
             + " allocated to the student, if there are available lockers."
             + "\n     4. If there are no available lockers for the student, then his/hers subscription"
             + " is terminated.";
 
     /**
-     * Instantiates the editLockerCommand object.
+     * This function instantiates the editLockerCommand object.
      * @param serialNumber stores the serial number of the locker to be edited.
      * @param editLocker stores the contents that are to be edited.
      */
@@ -58,6 +58,7 @@ public class EditLockerCommand extends Command {
         Locker editedLocker = editLockerDetails(lockerList, ui);
         ui.showSuccessfullyEdited(editedLocker.toString());
         storage.saveData(lockerList);
+        storage.updateStateList(lockerList);
     }
 
     private Locker editLockerDetails(LockerList lockerList, Ui ui) throws DukeException {
@@ -119,7 +120,7 @@ public class EditLockerCommand extends Command {
     }
 
     /**
-     * Creates and returns a {@code Locker} with the details of {@code lockerToEdit}
+     * This function creates and returns a {@code Locker} with the details of {@code lockerToEdit}
      * edited with {@code editLocker}.
      */
     private Locker createEditedLocker(Locker lockerToEdit, EditLocker editLocker) {
@@ -135,7 +136,7 @@ public class EditLockerCommand extends Command {
     }
 
     /**
-     * Stores the details to edit the locker with. Each non-empty field value will replace the
+     * This function stores the details to edit the locker with. Each non-empty field value will replace the
      * corresponding field value of the locker.
      */
     public static class EditLocker {
@@ -158,7 +159,7 @@ public class EditLockerCommand extends Command {
         }
 
         /**
-         * Returns true if at least one field is updated.
+         * This function returns true if at least one field is updated.
          */
         public boolean checkAnyFieldUpdated() {
             return (serialNumber != null || address != null

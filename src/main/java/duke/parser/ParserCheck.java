@@ -33,7 +33,7 @@ public class ParserCheck {
     private static final String SPLIT_BY_SPACE = " ";
 
     private static final String PREFERENCES_ERROR = " There must be at least one valid zone "
-            + "under preferences"
+            + "under preferences."
             + "\n    " + Zone.ERROR_MESSAGE;
     private static final String DATE_FORMAT = "dd-MM-uuuu";
 
