@@ -288,6 +288,25 @@ public class Ui {
     }
 
     /**
+     * This function prints the syntax for export CSV command.
+     */
+    public void showExportSyntax() {
+        printSpaces("To export the lockers to CSV file:");
+        printSpaces("  export");
+        printSpaces("  exports 'detail name'");
+        System.out.println();
+    }
+
+    /**
+     * This function prints the syntax for stats command.
+     */
+    public void showStatsSyntax() {
+        printSpaces("To display the stats for lockers:");
+        printSpaces("  stats");
+        System.out.println();
+    }
+
+    /**
      * This function prints the syntax for list and bye command.
      */
     public void showOtherSyntax() {
@@ -343,6 +362,8 @@ public class Ui {
         showAssignSyntax();
         showFindSyntax();
         showSortSyntax();
+        showExportSyntax();
+        showStatsSyntax();
         showOtherSyntax();
         showSyntaxLegends();
         showSyntaxNote();
