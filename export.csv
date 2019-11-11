@@ -1,6 +1,11 @@
-Locker,Status,End-Date
-1234,in-use,30-12-2019
-123,in-use,30-11-2019
-1,not-in-use,
-2,not-in-use,
-222,not-in-use,
+Locker,Address,Zone,Status,Name,Matrix-Number,Course,Email,Start-Date,End-Date
+1,Com-1,A,not-in-use,,,,,,
+2,Com-1,A,not-in-use,,,,,,
+3,Com-1,A,not-in-use,,,,,,
+4,Com-1,A,unauthorized,,,,,,
+5,Com-1,A,broken,,,,,,
+6,Com-2,B,not-in-use,,,,,,
+7,Com-2,B,unauthorized,,,,,,
+8,Com-2,C,broken,,,,,,
+9,Com-2,C,not-in-use,,,,,,
+10,Com-2,C,not-in-use,,,,,,

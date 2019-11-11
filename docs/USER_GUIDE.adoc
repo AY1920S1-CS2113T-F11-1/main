@@ -95,8 +95,34 @@ Format: `bye`
 All the data is automatically saved as a JSON file.
 
 === Export as csv
-Exports a list of lockers as csv. +
-Format: `export`
+This feature exports a list of lockers as csv. +
+
+1. Format: `export` +
+
+2. Format: `exports` + details needed to export. (With whitespaces separating the details) +
+
+* Locker info: `locker` `zone` `address` `status`
+* Locker info: `student` `matrixid` `course` `id`
+* Date info: `startdate` `enddate`
+
+* It is mandatory to input `locker` as it shows locker serial number.
+* It is mandatory to input `status` if user want to input any student info or date info.
+* The command is non-case-sensitive. Both Upper and Lower cases will excepted.
+* Commas will not be excepted to separate details.
+
+* Examples:
+
+** `exports locker` will export the locker serial number.
+** `exports locker name zone status` will export the locker serial-number, zone, status and student-name.
+** `exports locker status enddate` will export the locker serial-number, status and expiry-date.
+** `exports zone` is invalid as `locker` is missing.
+** `exports locker name` is invalid as `status` is missing.
+
+=== Pulling stats of locker management system.
+This feature displays the stats for current lockers. +
+
+Format: `stats`
+
 
 //tag::addLocker[]
 === Adding Lockers
